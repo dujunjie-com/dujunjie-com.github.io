@@ -2,1045 +2,54 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
-  
-  
-  
-  
   <title>Besos的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Besos的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="keywords" content="">
+  <meta name="description" content="Besos的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="时间模块 Python中有很多方便我们处理时间信息的模块  *time *模块 datetime 模块 *pytz *模块 *dateutil *模块    这里我们着重介绍的是前两种   time.time()返回当前时间于 Unix时间 (1970.1.1 00:00:00)经过的秒数返回值也称作时间戳，是一个浮点数类型    time.localtime(seconds)将时间戳秒数转换为表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时间模块">
+<meta property="og:url" content="http://yoursite.com/2019/12/24/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/index.html">
 <meta property="og:site_name" content="Besos的博客">
+<meta property="og:description" content="时间模块 Python中有很多方便我们处理时间信息的模块  *time *模块 datetime 模块 *pytz *模块 *dateutil *模块    这里我们着重介绍的是前两种   time.time()返回当前时间于 Unix时间 (1970.1.1 00:00:00)经过的秒数返回值也称作时间戳，是一个浮点数类型    time.localtime(seconds)将时间戳秒数转换为表">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-24T00:50:49.000Z">
+<meta property="article:modified_time" content="2019-12-24T00:51:57.974Z">
 <meta property="article:author" content="Besos的博客">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="Besos的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
-<meta name="generator" content="Hexo 4.2.0"></head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<link rel="icon" href="/img/avatar.jpg">
 
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/avatar.png" class="js-avatar">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">Besos的博客</a></h1>
-        </hgroup>
-        
-        
-            <form>
-                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
-            </form>
-            <div id="local-search-result"></div>
-        
-        
-            <script type="text/javascript">
-                (function() {
-                    'use strict';
-                    function getMatchData(keyword, data) {
-                        var matchData = [];
-                        for(var i =0;i<data.length;i++){
-                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
-                                matchData.push(data[i])
-                        }
-                        return matchData;
-                    }
-                    var $input = $('#local-search-input');
-                    var $resultContent = $('#local-search-result');
-                    $input.keyup(function(){
-                        $.ajax({
-                            url: '/search.json',
-                            dataType: "json",
-                            success: function( json ) {
-                                var str='<ul class=\"search-result-list\">';                
-                                var keyword = $input.val().trim().toLowerCase();
-                                $resultContent.innerHTML = "";
-                                if ($input.val().trim().length <= 0) {
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                }
-                                var results = getMatchData(keyword, json);
-                                if(results.length === 0){
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                } 
-                                for(var i =0; i<results.length; i++){
-                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
-                                }
-                                str += "</ul>";
-                                $resultContent.empty();
-                                $resultContent.append(str);
-                                $('#switch-area').hide();
-                            }
-                        });
-                    });
-                })();
-            </script>
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a  href="/archives/">所有文章</a></li>
-                        
-                            <li><a  href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
-                        
-                            <li><a  href="/categories/digital">玩转数码</a></li>
-                        
-                            <li><a  href="/categories/algorithm">算法学习</a></li>
-                        
-                            <li><a  href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl github"  target="_blank" href="/xxxxx" title="github">github</a>
-                            
-                                <a class="fl weibo"  target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
-                            
-                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
-                    
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">爱动漫,爱游戏,爱编程,爱运动,爱的太多了!</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>
-</div>
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Besos的博客</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/avatar.png" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">Besos的博客</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
-                
-                    <li><a href="/categories/digital">玩转数码</a></li>
-                
-                    <li><a href="/categories/algorithm">算法学习</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="github" target="_blank" href="/xxxxx" title="github">github</a>
-                    
-                        <a class="weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
-                    
-                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-                    
-                </div>
-            </nav>
-        </header>
-    </div>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-时间模块" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/24/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/" class="article-date">
-      <time datetime="2019-12-24T00:50:49.000Z" itemprop="datePublished">2019-12-24</time>
-</a>
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
 
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/24/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/">时间模块</a>
-    </h1>
-  
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="时间模块"><a href="#时间模块" class="headerlink" title="时间模块"></a>时间模块</h3><blockquote>
-<p>Python中有很多方便我们处理时间信息的模块</p>
-<ul>
-<li>*<em>time *</em>模块</li>
-<li><strong>datetime</strong> 模块</li>
-<li>*<em>pytz *</em>模块</li>
-<li>*<em>dateutil *</em>模块</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>这里我们着重介绍的是前两种</p>
-</blockquote>
-<blockquote>
-<p><strong>time.time()</strong><br>返回当前时间于 <strong>Unix</strong>时间 <strong>(1970.1.1 00:00:00)</strong>经过的秒数<br>返回值也称作<strong>时间戳</strong>，是一个<strong>浮点数</strong>类型</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.localtime(seconds)</strong><br>将<strong>时间戳秒数</strong>转换为表示<strong>本地时间</strong>的<strong>时间元组</strong><br>如果没有传入参数，则直接返回<strong>当前本地时间</strong>的<strong>时间元组</strong></p>
-<blockquote>
-<p>时间元组：<strong>(tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst)</strong></p>
-<ul>
-<li><strong>tm_wday</strong>：从0开始，表示星期几</li>
-<li><strong>tm_yday</strong>：第几天</li>
-<li><strong>tm_isdst</strong>：夏令时的决定旗标</li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.sleep(seconds)</strong><br><strong>推迟</strong>程序的运行，参数为推迟的<strong>秒数</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.clock()</strong><br>一般用来衡量<strong>程序</strong>的<strong>耗时</strong></p>
-<ul>
-<li><p><strong>win</strong></p>
-<p>：</p>
-<ul>
-<li>第一次调用：<strong>浮点数形式</strong>返回当前<strong>CPU</strong>运行时间</li>
-<li>第二次调用：<strong>浮点数形式</strong>返回距离<strong>上次调用</strong>该函数至此次的<strong>时间间隔</strong></li>
-</ul>
-</li>
-<li><p><strong>Linux</strong></p>
-<p>：</p>
-<ul>
-<li>浮点数返回当前的程序执行时间</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.asctime(tupletime)</strong><br>将一个<strong>时间元组</strong>返回为一个<strong>可读形式</strong>字符串</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.asctime( time.localtime() )<span class="string">'Fri Feb  2 22:26:36 2018'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<p><strong>time.strftime( format [, tuple] )</strong><br>将<strong>时间元组</strong>根据指定<strong>格式</strong>返回为<strong>可读字符串</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.strptime( string, format )</strong><br>将<strong>可读字符串</strong>根据<strong>格式</strong>返回为<strong>时间元组</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>格式</strong>：</p>
-<ul>
-<li><strong>%Y</strong>：年份</li>
-<li><strong>%m</strong>：月份</li>
-<li><strong>%d</strong>：天数</li>
-<li><strong>%H</strong>：小时</li>
-<li><strong>%M</strong>：分钟</li>
-<li><strong>%S</strong>：秒</li>
-<li><strong>%x</strong>：天/月/年</li>
-<li><strong>%X</strong>：当前 时:分:秒</li>
-<li><strong>%A</strong>：星期 (全称)</li>
-<li><strong>%a</strong>：星期 (缩写)</li>
-</ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.strftime(<span class="string">'%Y %m %d'</span>,time.localtime())<span class="string">'2018 02 02'</span>&gt;&gt;&gt; time.strptime(<span class="string">'2018 02 02'</span>,<span class="string">'%Y %m %d'</span>)time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">2</span>, tm_mday=<span class="number">2</span>, tm_hour=<span class="number">0</span>, tm_min=<span class="number">0</span>, tm_sec=<span class="number">0</span>, tm_wday=<span class="number">4</span>, tm_yday=<span class="number">33</span>, tm_isdst=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="datetime模块"><a href="#datetime模块" class="headerlink" title="datetime模块"></a>datetime模块</h4><blockquote>
-<p><strong>子模块介绍</strong>：在<strong>datetime</strong>模块分别包含了以下三个模块进行时间处理</p>
-<blockquote>
-<ul>
-<li><strong>datetime.datetime</strong>：处理年月日，时分秒</li>
-<li><strong>datetime.date</strong>：处理年月日</li>
-<li><strong>datetime.time</strong>：处理时分秒</li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>datetime.datetime.now()</strong><br><strong>datetime.datetime.today()</strong><br>获取<strong>当前时间</strong>，包含<strong>年月日</strong>，<strong>时分秒</strong>，<strong>微秒</strong><br>返回类型为<strong>datetime.datetime</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>datetime.date.today()</strong><br>返回<strong>当前时间</strong>，只包含<strong>年月日</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>datetime.datetime.delta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)</strong><br>表示<strong>时间差</strong></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>now = datetime.datetime.now()&gt;&gt;&gt; nowdatetime.datetime(<span class="number">2018</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="number">220858</span>)&gt;&gt;&gt; de = datetime.timedelta(days=<span class="number">30</span>)&gt;&gt;&gt; de + nowdatetime.datetime(<span class="number">2018</span>, <span class="number">3</span>, <span class="number">12</span>, <span class="number">17</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="number">220858</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<p>一些时间实例中的函数：</p>
-<blockquote>
-<ul>
-<li><strong>res = datetime.datetime.today()</strong></li>
-<li><strong>res = datetime.date.today()</strong></li>
-<li><strong>res = datetime.time(10,20,10)</strong></li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p>一些<strong>通用</strong>的<strong>实例函数</strong>，在下<strong>列举</strong>：</p>
-</blockquote>
-<hr>
-<blockquote>
-<ul>
-<li>*<em>res.year *</em>：年</li>
-<li><strong>res.month</strong>：月</li>
-<li><strong>res.day</strong>：日</li>
-<li><strong>res.hour</strong>： 时</li>
-<li><strong>res.minute</strong>：分</li>
-<li><strong>res.second</strong>：秒</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.timestamp()</strong><br>获取当前时间戳</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.timetuple()</strong><br>获取当前时间元组</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.ctime()</strong><br>返回一个字符串日期</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.replace(year, month, day, hour, minute, second)</strong><br>将指定值<strong>替换</strong>后返回一个新的<strong>date</strong>数据</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.timetuple()</strong><br>返回一个<strong>时间元组</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.weekday() **</strong><br>从0开始<strong>返回当前时间是星期几<br>\</strong>星期一为0<strong>，</strong>星期日为6**</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.isoweekday()</strong><br>以<strong>ISO</strong>时间标准格式从<strong>1</strong>开始返回当前时间是星期几<br><strong>星期一为1</strong>，<strong>星期日为7</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.isocalendar()</strong><br><strong>ISO</strong>表示格式的<strong>时间元组</strong><br><strong>(年，月，日)</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.isoformat()</strong><br>返回 一个<strong>‘YYYY-MM-DD’</strong>的<strong>字符串格式</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>构造</strong>自己的时间</p>
-<blockquote>
-<p><strong>datetime.datetime(2018, 2, 2, 23, 11, 2, 9999)</strong><br><strong>参数位置分别为</strong>：<strong>年 月 日 时 分 秒 微秒</strong><br><strong>返回值</strong>： <strong>datetime.datetime</strong>类型</p>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-随机数模块" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/24/%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%A8%A1%E5%9D%97/" class="article-date">
-      <time datetime="2019-12-24T00:48:12.000Z" itemprop="datePublished">2019-12-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/24/%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%A8%A1%E5%9D%97/">随机数模块</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="随机数模块"><a href="#随机数模块" class="headerlink" title="随机数模块"></a>随机数模块</h3><p>Python中，有一个叫做<strong>random</strong>的内置模块，可以很方便的为我们生成各式的随机数据</p>
-<ul>
-<li><p>random.randrange( stop )</p>
-<blockquote>
-<p>返回从0-stop区间内的随机整数</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.randrange(<span class="number">20</span>)<span class="number">7</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>random.randrange( start, stop, step )</p>
-<blockquote>
-<p>返回从start-stop区间内，并且步长为step的一个整数，类似range函数</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.randrange(<span class="number">0</span>,<span class="number">10</span>,<span class="number">3</span>)<span class="number">3</span>&gt;&gt;&gt; random.randrange(<span class="number">0</span>,<span class="number">10</span>,<span class="number">3</span>)<span class="number">6</span>&gt;&gt;&gt; random.randrange(<span class="number">0</span>,<span class="number">10</span>,<span class="number">3</span>)<span class="number">6</span>&gt;&gt;&gt; random.randrange(<span class="number">0</span>,<span class="number">10</span>,<span class="number">3</span>)<span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>random.randint(start, stop)</p>
-<blockquote>
-<p>返回start-stop区间内的一个整数</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.randint(<span class="number">10</span>,<span class="number">20</span>)<span class="number">19</span>&gt;&gt;&gt; random.randint(<span class="number">10</span>,<span class="number">20</span>)<span class="number">19</span>&gt;&gt;&gt; random.randint(<span class="number">10</span>,<span class="number">20</span>)<span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>random.getrandbits(num)</p>
-<blockquote>
-<p>传入一个num值，返回一个从<strong>0</strong>到<strong>2</strong>的<strong>num</strong>次方(2 ** num)区间内的一个整数</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.getrandbits(<span class="number">3</span>)<span class="comment">#(2**3)5&gt;&gt;&gt; random.getrandbits(3)2&gt;&gt;&gt; random.getrandbits(3)1</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="随机浮点数"><a href="#随机浮点数" class="headerlink" title="随机浮点数"></a>随机浮点数</h4><ul>
-<li><p>random.random()</p>
-<blockquote>
-<p>返回介于0到1之间的浮点数</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.random()<span class="number">0.018594388691108188</span>&gt;&gt;&gt; random.random()<span class="number">0.7626285486964196</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>random.uniform(start, stop)</p>
-<blockquote>
-<p>返回介于start-stop之间的浮点数，start和stop的值也可能出现</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.uniform(<span class="number">1</span>,<span class="number">3</span>)<span class="number">1.5281489461709883</span>&gt;&gt;&gt; random.uniform(<span class="number">1</span>,<span class="number">3</span>)<span class="number">1.0881355542393485</span>&gt;&gt;&gt; random.uniform(<span class="number">1</span>,<span class="number">3</span>)<span class="number">1.4888568616457178</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="随机序列"><a href="#随机序列" class="headerlink" title="随机序列"></a>随机序列</h4><ul>
-<li><p>random.choice(seq)</p>
-<blockquote>
-<p>从非空序列seq中随机选取一个元素，如果为空序列，则引发IndexError</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.choice([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])<span class="number">3</span>&gt;&gt;&gt; random.choice([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])<span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>random.shuffle(seq)</p>
-<blockquote>
-<p>将可变序列随机打乱</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>mylist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]&gt;&gt;&gt; random.shuffle(mylist)&gt;&gt;&gt; mylist[<span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>random.sample(seq,num)</p>
-<blockquote>
-<p>从数据集中重新抽取num个元素形成新的序列(不重复随机抽样)，不会修改原有数据集<br>num值不可大于数据集最大长度</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.sample(mylist,<span class="number">3</span>)[<span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>]&gt;&gt;&gt; random.sample(mylist,<span class="number">3</span>)[<span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>]&gt;&gt;&gt; random.sample(mylist,<span class="number">3</span>)[<span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-
-<h4 id="其他随机函数"><a href="#其他随机函数" class="headerlink" title="其他随机函数"></a>其他随机函数</h4><ul>
-<li>random.expovariate(lambd) 指数分布</li>
-<li>random.gammavariate(alpha, beta) 伽玛分布</li>
-<li>random.gauss(mu, sigma) 高斯分布</li>
-<li>random.lognormvariate(mu, sigma) 对数正态分布</li>
-<li>random.normalvariate(mu, sigma) 正态分布</li>
-<li>random.vonmisesvariate(mu, kappa) 卡帕分布</li>
-<li>random.paretovariate(alpha) 帕累托分布</li>
-<li>random.weibullvariate(alpha, beta) 威布尔分布</li>
-<li>random.betavariate(alpha, beta) β分布，返回的结果在0~1之间</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-os模块" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/23/os%E6%A8%A1%E5%9D%97/" class="article-date">
-      <time datetime="2019-12-23T08:05:53.000Z" itemprop="datePublished">2019-12-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/23/os%E6%A8%A1%E5%9D%97/">os模块</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h3><blockquote>
-<p>使用os模块时，不需要考虑平台差异，解释器会帮大家选择正确的系统支持<br>可以对进程和进程运行环境进行管理<br>该模块还可以处理大部分文件系统操作，比如<strong>删除</strong>，<strong>重命名</strong>文件，<strong>遍历目录树</strong>，以及<strong>管理文件</strong>访问权限。</p>
-</blockquote>
-<hr>
-<ul>
-<li><p><strong>os</strong>和<strong>sys</strong>：</p>
-<blockquote>
-<p>os负责程序与<strong>操作系统</strong>的交互<br>sys负责程序与<strong>解释器</strong>的交互</p>
-</blockquote>
-</li>
-<li><p><strong>os.path</strong>和<strong>sys.path</strong>：</p>
-<blockquote>
-<p>sys.path是<strong>PATH</strong>环境变量<br>os.path是os模块下的子模块，提供了一些关于路径处理的函数</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h4 id="os模块常用函数"><a href="#os模块常用函数" class="headerlink" title="os模块常用函数"></a>os模块常用函数</h4><ul>
-<li>os.name：输出字符串指示正在使用的平台</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.name<span class="string">'nt'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.getcwd()：得到当前<strong>工作目录</strong>(就是你的进程所工作的目录)，即当前脚本工作路径</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()<span class="string">'C:\\Users\\Administrator'</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ul>
-<li><strong>运行目录</strong>：执行程序时的路径</li>
-<li><strong>工作目录</strong>：程序运行时，程序中我们要操作其他文件时使用的的一系列相对路径(相对路径需要参照)，工作目录可在程序运行时更改</li>
-</ul>
-</blockquote>
-<hr>
-<ul>
-<li>os.listdir()：返回指定目录下的所有文件和目录名的一个列表，但是并没有列出来什么是目录，什么是文件。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.listdir()&gt;&gt;&gt; os.listdir()[ <span class="string">'桌面'</span>, <span class="string">'下载'</span>, <span class="string">'模板'</span>, <span class="string">'公共'</span>, <span class="string">'文档'</span>, <span class="string">'音乐'</span>, <span class="string">'图片'</span>, <span class="string">'视频'</span>]<span class="comment">#结果为列表，但是并没有列出谁是目录，谁是文件</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.remove(‘file_name’)：<strong>删除</strong>指定<strong>文件</strong>，文件不存在则报错</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.remove(<span class="string">'1.txt'</span>)Traceback (most recent call last):  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;FileNotFoundError: [Errno <span class="number">2</span>] No such file <span class="keyword">or</span> directory: <span class="string">'1.txt'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.rmdir(‘dir_name’)：<strong>删除</strong>指定<strong>目录</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.remove(<span class="string">'桌面'</span>)<span class="comment">#删除桌面目录</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.mkdir(‘dir_name’)：<strong>创建</strong>目录</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.mkdir(<span class="string">'桌面'</span>)<span class="comment">#创建目录名为桌面</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.makedirs(‘a/b/c’)：<strong>递归创建</strong>目录</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.makedirs(<span class="string">'a/b/c'</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.system(‘ls’)：执行<strong>shell</strong>命令</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.system(<span class="string">'su rm -rf /*'</span>)<span class="comment">#四大皆空</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.chdir(‘file_path’)：改变<strong>工作目录</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()<span class="string">'C:\\Users\\Administrator'</span>&gt;&gt;&gt; os.chdir(<span class="string">'C:\\Users'</span>)&gt;&gt;&gt; os.getcwd()<span class="string">'C:\\Users'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>os.chmod(‘file_name’)：改变文件或目录的<strong>权限</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.chmod(<span class="string">'1.txt'</span>,<span class="number">445</span>)&gt;&gt;&gt; os.system(<span class="string">'ls -l 1.txt'</span>)-rw-rwxr-x <span class="number">1</span> root root <span class="number">0</span> <span class="number">1</span>月  <span class="number">19</span> <span class="number">11</span>:<span class="number">42</span> <span class="number">1.</span>txt0</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="Os-path模块常用函数"><a href="#Os-path模块常用函数" class="headerlink" title="Os.path模块常用函数"></a>Os.path模块常用函数</h3><ul>
-<li><p>os.path.abspath(‘file_name’)</p>
-<p>：</p>
-<ul>
-<li>返回文件或目录的绝对路径</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.abspath(<span class="string">'1.txt'</span>)<span class="string">'/root/1.txt'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.split(‘file_path’)</p>
-<p>：</p>
-<ul>
-<li>将路径分隔成目录和文件名，并以一个元组返回</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.split(<span class="string">'/root/1.txt'</span>)(<span class="string">'/root'</span>, <span class="string">'1.txt'</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.basename(‘path’)</p>
-<p>：</p>
-<ul>
-<li>返回路径最后的文件名</li>
-<li>如果后面还有\ / 那么返回一个空字符串</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.basename(<span class="string">'/root/1.txt'</span>)<span class="string">'1.txt'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.exists(‘file_path’)</p>
-<p>：</p>
-<ul>
-<li>如果路径存在，则返回True，反之返回False</li>
-<li>与上面的函数不同，他就是检查这个路径是否存在</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.exists(<span class="string">'/root/2.txt'</span>)<span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.join(‘file_path’，’file_name’)</p>
-<p>：</p>
-<ul>
-<li>路径拼接</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.join(<span class="string">'/root'</span>,<span class="string">'abc'</span>)<span class="string">'/root/abc'</span>&gt;&gt;&gt; os.path.join(<span class="string">'root'</span>,<span class="string">'abc'</span>)<span class="string">'root/abc'</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.isdir(‘name’)</p>
-<p>：</p>
-<ul>
-<li>判断是否为目录，返回值为bool</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isdir(<span class="string">'/root'</span>)<span class="literal">True</span>&gt;&gt;&gt; os.path.isdir(<span class="string">'1.txt'</span>)<span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.isfile(‘name’)</p>
-<p>：</p>
-<ul>
-<li>判断是否为文件，返回值为bool</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isfile(<span class="string">'/root'</span>)<span class="literal">False</span>&gt;&gt;&gt; os.path.isfile(<span class="string">'1.txt'</span>)<span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.islink(‘name’)</p>
-<p>：</p>
-<ul>
-<li>判断是否是链接，返回值为bool</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.islink(<span class="string">'1.txt'</span>)<span class="literal">False</span>&gt;&gt;&gt; os.path.islink(<span class="string">'/usr/bin/python3'</span>)<span class="literal">True</span><span class="comment">#ln -s 是我们在linux下创建连接的命令，类似win下的快捷方式</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>os.path.getsize(‘path’)</p>
-<p>：</p>
-<ul>
-<li>返回文件大小</li>
-<li>如果文件不存在，抛出异常</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.getsize(<span class="string">'1.txt'</span>)<span class="number">0</span>&gt;&gt;&gt; os.path.getsize(<span class="string">'2.txt'</span>)Traceback (most recent call last):  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  File <span class="string">"/usr/local/python3/lib/python3.6/genericpath.py"</span>, line <span class="number">50</span>, <span class="keyword">in</span> getsize    <span class="keyword">return</span> os.stat(filename).st_sizeFileNotFoundError: [Errno <span class="number">2</span>] No such file <span class="keyword">or</span> directory: <span class="string">'2.txt'</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-	  <embed src="//music.163.com/style/swf/widget.swf?sid=862198474&type=2&auto=1&width=320&height=66" width="331" height="86"  allowNetworking="all"></embed>
-
-	  </div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2019 Besos的博客
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >极客到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-
-    </div>
-    
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 1;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'xxxxx', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
+    hljs.initHighlightingOnLoad();
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
 
 
-  </div>
 
-</body>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
 <script src="/js/aixin.js"></script>
 <iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
 
@@ -1055,5 +64,563 @@ left: 95%;
 transform: translate(-68%, -50%);
 }
 </style>
+<body>
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Besos的博客</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(3)</small></div></li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="3">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2019/12/24/%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%A8%A1%E5%9D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="随机数模块">随机数模块</span>
+            <span class="post-date" title="2019-12-24 08:48:12">2019/12/24</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/12/24/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="时间模块">时间模块</span>
+            <span class="post-date" title="2019-12-24 08:50:49">2019/12/24</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/12/23/os%E6%A8%A1%E5%9D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="os模块">os模块</span>
+            <span class="post-date" title="2019-12-23 16:05:53">2019/12/23</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于Besos"><span class="toc-text">关于Besos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
+<blockquote>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+</blockquote>
+<blockquote>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+</blockquote>
+<blockquote>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h2 id="关于Besos"><a href="#关于Besos" class="headerlink" title="关于Besos"></a>关于Besos</h2><p>Besos 是阿杰（堵俊杰）的个人站。</p>
+<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>，主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
+<p>主要功能：</p>
+<ul>
+<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
+<li>pad/手机等移动端适配</li>
+<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
+</ul>
+
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
 
 </html>
