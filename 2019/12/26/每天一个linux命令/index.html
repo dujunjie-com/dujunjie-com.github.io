@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>简易百度图片爬虫 | Besos的博客</title>
+  <title>每天一个linux命令(1) ls | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" 爬虫 ">
-  <meta name="description" content="简易百度图片爬虫 | Besos的博客">
+  <meta name="keywords" content=" 命令 ">
+  <meta name="description" content="每天一个linux命令(1) ls | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。 通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限(包括目录、文件夹、文件权限)、查看目录信息等等。ls命令在日常的linux操作中用的很多! 命令格式$ ls [选项] [目录名] 1 命令功能列出目标目录">
 <meta property="og:type" content="article">
@@ -368,9 +368,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-简易百度图片爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-每天一个linux命令" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">简易百度图片爬虫</h1>
+        <h1 class="article-title">每天一个linux命令(1) ls</h1>
     
     <div class="article-meta">
         
@@ -378,26 +378,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="python">python</a>
+                <a  data-rel="Linux">Linux</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color3">爬虫</a>
+            <a class="color3">命令</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-26 19:30:51'>2019-12-25 08:00</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-26 19:42:53'>2019-12-26 19:32</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:489</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -427,7 +427,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简易百度图片爬虫"><span class="toc-text">简易百度图片爬虫</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-text">命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令功能"><span class="toc-text">命令功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用参数"><span class="toc-text">常用参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用范例"><span class="toc-text">常用范例</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -443,48 +443,204 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="简易百度图片爬虫"><a href="#简易百度图片爬虫" class="headerlink" title="简易百度图片爬虫"></a>简易百度图片爬虫</h3><ul>
-<li>目标站点：任意百度图片地址</li>
-<li>抓取分析：百度图片中的<strong>Html</strong>代码中<strong>objURL</strong>部分为实际图片地址，其他连接大家可以尝试访问，部分为压缩图片，部分做了防盗链处理，还有部分是<strong>404</strong>无法访问</li>
-</ul>
-<pre><code class="python">from urllib.request import urlopen,urlretrieve
-import re
-url = &quot;http://image.baidu.com/search/index?tn=baiduimage&amp;ipn=r&amp;ct=201326592&amp;cl=2&amp;lm=-1&amp;st=-1&amp;fm=index&amp;fr=&amp;sf=1&amp;fmq=&amp;pv=&amp;ic=0&amp;nc=1&amp;z=&amp;se=1&amp;showtab=0&amp;fb=0&amp;width=&amp;height=&amp;face=0&amp;istype=2&amp;ie=utf-8&amp;word=%E7%BE%8E%E5%A5%B3&amp;oq=%E7%BE%8E%E5%A5%B3&amp;rsp=-1#z=0&amp;pn=&amp;ic=0&amp;st=-1&amp;face=0&amp;s=0&amp;lm=-1&quot;
-html = urlopen(url)
-obj = html.read().decode() #得到网页HTML源码
-urls = re.findall(r&#39;&quot;objURL&quot;:&quot;(.*?)&quot;&#39;,obj)#在这一步，获取网页中的objURL部分，也就是真正的图片地址
-index = 0
-for url in urls:
-    if index &lt;=10:#控制下载10张
-        try:
-            print(&#39;Downloading...%d&#39;%(index))
-            urlretrieve(url,&#39;pic&#39;+str(index)+&#39;.png&#39;) #urlretrieve函数 下载图片
-            index += 1
-        except Exception: #当由于网络原因或图片服务器出现问题时，捕获异常即可，不使程序退出
-            print(&#39;Downloading Failed%d&#39;%(index))
-        finally:
-            print(&#39;Downloading Complete&#39;)
-    else:
-        break</code></pre>
-<ul>
-<li><p><strong>urlopen( url, )</strong></p>
-<p>：</p>
-<ul>
-<li>打开一个连接，并且返回一个<strong>HttpResponse</strong>对象</li>
-<li>参数第一个为<strong>URL</strong>连接地址</li>
-</ul>
-</li>
-<li><p><strong>urlretrieve(url, path )</strong></p>
-<p>：</p>
-<ul>
-<li>根据资源地址，下载资源</li>
-<li>第一个参数为地址，第二个参数为本地保存路径</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><strong>分析</strong>：这里只是一个非常简单的页面分析代码，通过正则分析页面中的对应<strong>URL</strong>部分，并且使用** ( ) 提取出真正需要的内容<br><strong>关于爬虫，此处只介绍了不到</strong>0.01<strong>的部分，所以请各位观众在阅读时，了解这只是一个小玩具，</strong>单纯为了练习正则**</p>
-</blockquote>
+        <p>　　ls命令是linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。 通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限(包括目录、文件夹、文件权限)、查看目录信息等等。ls命令在日常的linux操作中用的很多!</p>
+<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><pre><code class="python">$ ls [选项] [目录名]
+1</code></pre>
+<h3 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h3><p>列出目标目录中所有的子目录和文件。</p>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-a,–all</td>
+<td align="left">列出目录下的所有文件，包括以 . 开头的隐含文件</td>
+</tr>
+<tr>
+<td align="left">-A</td>
+<td align="left">同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)。</td>
+</tr>
+<tr>
+<td align="left">-c 配合 -lt</td>
+<td align="left">根据 ctime 排序及显示 ctime (文件状态最后更改的时间)配合 -lt：显示 ctime 但根据名称排序否则：根据 ctime 排序</td>
+</tr>
+<tr>
+<td align="left">-C</td>
+<td align="left">每栏由上至下列出项目</td>
+</tr>
+<tr>
+<td align="left">-color[=WHEN]</td>
+<td align="left">控制是否使用色彩分辨文件。WHEN 可以是’never’、’always’或’auto’其中之一</td>
+</tr>
+<tr>
+<td align="left">-d,–directory</td>
+<td align="left">将目录象文件一样显示，而不是显示其下的文件。</td>
+</tr>
+<tr>
+<td align="left">-D,–dired</td>
+<td align="left">产生适合 Emacs 的 dired 模式使用的结果</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">对输出的文件不进行排序，-aU 选项生效，-lst 选项失效</td>
+</tr>
+<tr>
+<td align="left">-g</td>
+<td align="left">类似 -l,但不列出所有者</td>
+</tr>
+<tr>
+<td align="left">-G, –no-group</td>
+<td align="left">不列出任何有关组的信息</td>
+</tr>
+<tr>
+<td align="left">-h,–human-readable</td>
+<td align="left">以容易理解的格式列出文件大小 (例如 1K 234M 2G)</td>
+</tr>
+<tr>
+<td align="left">–si</td>
+<td align="left">类似 -h,但文件大小取 1000 的次方而不是 1024</td>
+</tr>
+<tr>
+<td align="left">-H, –dereference-command-line</td>
+<td align="left">使用命令列中的符号链接指示的真正目的地</td>
+</tr>
+<tr>
+<td align="left">–indicator-style=&lt;方式&gt;</td>
+<td align="left">指定在每个项目名称后加上指示符号&lt;方式&gt;：none (默认)，classify (-F)，file-type (-p)</td>
+</tr>
+<tr>
+<td align="left">-i, –inode</td>
+<td align="left">印出每个文件的 inode 号</td>
+</tr>
+<tr>
+<td align="left">-I,–ignore=样式</td>
+<td align="left">不印出任何符合 shell 万用字符&lt;样式&gt;的项目</td>
+</tr>
+<tr>
+<td align="left">-k</td>
+<td align="left">即 –block-size=1K,以 k 字节的形式表示文件的大小</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来。</td>
+</tr>
+<tr>
+<td align="left">-L, –dereference</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">-m</td>
+<td align="left">所有项目以逗号分隔，并填满整行行宽</td>
+</tr>
+<tr>
+<td align="left">-o</td>
+<td align="left">类似 -l,显示文件的除组信息外的详细信息。</td>
+</tr>
+<tr>
+<td align="left">-r, –reverse</td>
+<td align="left">依相反次序排列</td>
+</tr>
+<tr>
+<td align="left">-R, –recursive</td>
+<td align="left">同时列出所有子目录层</td>
+</tr>
+<tr>
+<td align="left">-s,–size</td>
+<td align="left">以块大小为单位列出所有文件的大小</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">根据文件大小排序</td>
+</tr>
+<tr>
+<td align="left">–sort=WORD</td>
+<td align="left">可选用的 WORD 和它们代表的相应选项： extension -X status -c none -U time -t size -S atime -u time -t access -u version -v use -u</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">以文件修改时间排序</td>
+</tr>
+<tr>
+<td align="left">-u</td>
+<td align="left">配合 -lt:显示访问时间而且依访问时间排序 配合 -l:显示访问时间但根据名称排序 否则：根据访问时间排序</td>
+</tr>
+<tr>
+<td align="left">-U</td>
+<td align="left">不进行排序;依文件系统原有的次序列出项目</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">根据版本进行排序</td>
+</tr>
+<tr>
+<td align="left">-w, –width=COLS</td>
+<td align="left">自行指定屏幕宽度而不使用目前的数值</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">逐行列出项目而不是逐栏列出</td>
+</tr>
+<tr>
+<td align="left">-X</td>
+<td align="left">根据扩展名排序</td>
+</tr>
+<tr>
+<td align="left">-1</td>
+<td align="left">每行只列出一个文件</td>
+</tr>
+<tr>
+<td align="left">–help</td>
+<td align="left">显示此帮助信息并离开</td>
+</tr>
+<tr>
+<td align="left">–version</td>
+<td align="left">显示版本信息并离开</td>
+</tr>
+</tbody></table>
+<h3 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h3><p><strong><code>例一</code>：列出/home/faker/ 文件夹下的所有文件和目录的详细资料</strong></p>
+<pre><code class="python">$ ls -l -R /home/faker
+$ ls -lR /home/faker
+12</code></pre>
+<p><strong><code>例二</code>：列出当前目录中所有以“t”开头的目录的详细内容，可以使用如下命令</strong></p>
+<pre><code class="python">$ ls -l t*
+1</code></pre>
+<p><strong><code>例三</code>：只列出文件下的子目录</strong></p>
+<pre><code class="python">$ ls -F /opt/soft |grep /$
+1</code></pre>
+<p><strong><code>例四</code>：列出文件下的子目录详细情况</strong></p>
+<pre><code class="python">$ ls -l /opt/soft | grep &quot;^d&quot;
+1</code></pre>
+<p><strong><code>例五</code>：列出目前工作目录下所有名称是s 开头的文件，愈新的排愈后面，可以使用如下命令</strong></p>
+<pre><code class="python">$ ls -ltr s*
+1</code></pre>
+<p><strong><code>例六</code>：列出目前工作目录下所有档案及目录;目录于名称后加”/“, 可执行档于名称后加<code>\*</code></strong></p>
+<pre><code class="python">$ ls -AF
+1</code></pre>
+<p><strong><code>例七</code>：计算当前目录下的文件数和目录数</strong></p>
+<pre><code class="python">$ ls -l * |grep &quot;^-&quot;|wc -l    ---文件个数
+$ ls -l * |grep &quot;^d&quot;|wc -l    ---目录个数
+12</code></pre>
+<p><strong><code>例八</code>：在ls中列出文件的绝对路径</strong></p>
+<pre><code class="python">$ ls | sed &quot;s:^:`pwd`/:&quot;
+1</code></pre>
+<p><strong><code>例九</code>：列出当前目录下的所有文件（包括隐藏文件）的绝对路径， 对目录不做递归</strong></p>
+<pre><code class="python">$ find $PWD -maxdepth 1 | xargs ls -ld
+1</code></pre>
+<p><strong><code>例十</code>：列出当前目录下的所有文件（包括隐藏文件）的绝对路径， 对目录不做递归</strong></p>
+<pre><code class="python">$ find $PWD -maxdepth 1 | xargs ls -ld
+1</code></pre>
+<p><strong><code>例十</code>：递归列出当前目录下的所有文件（包括隐藏文件）的绝对路径</strong></p>
+<pre><code class="python">$ find $PWD | xargs ls -ld
+1</code></pre>
+<p><strong><code>例十</code>：指定文件时间输出格式</strong></p>
+<pre><code class="python">$ ls -tl --time-style=full-iso
+$ ls -ctl --time-style=long-iso
+12
+2016-08-05 22:17:06.020535551 +0800
+2016-10-29 12:03
+12</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -498,12 +654,12 @@ for url in urls:
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>简易百度图片爬虫</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">489</span></p>
+    <p><span class="copy-title">文章标题:</span>每天一个linux命令(1) ls</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-25, 08:00:00</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-26, 19:30:51</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/25/%E7%AE%80%E6%98%93%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB/" title="简易百度图片爬虫">http://yoursite.com/2019/12/25/%E7%AE%80%E6%98%93%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-26, 19:32:45</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-26, 19:42:53</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/26/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4/" title="每天一个linux命令(1) ls">http://yoursite.com/2019/12/26/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
