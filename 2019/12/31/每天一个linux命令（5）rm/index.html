@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>每天一个linux命令(3)pwd | Besos的博客</title>
+  <title>每天一个linux命令（5）rm | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
   <meta name="keywords" content=" 命令 ">
-  <meta name="description" content="每天一个linux命令(3)pwd | Besos的博客">
+  <meta name="description" content="每天一个linux命令（5）rm | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="异常介绍当我们的程序发生一些解释器无法继续处理下去的事情，我们的解释器无法执行无法编译，这时会抛出错误(异常) 一般的异常是一些逻辑错误，语法错误，无法生成结果等 抛出错误(异常)之后，我们的程序将无法正常执行下去(抛出的错误会使我们的程序(一般是终止)做错误的默认处理)但是我们也可以自己去改写出现错误之后的默认处理动作，也叫做捕获异常；这么做的目的就是为了提高我们程序的健壮性，应对各种复杂的互联">
 <meta property="og:type" content="article">
@@ -423,9 +423,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-每天一个linux命令(3) pwd" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-每天一个linux命令（5）rm" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">每天一个linux命令(3)pwd</h1>
+        <h1 class="article-title">每天一个linux命令（5）rm</h1>
     
     <div class="article-meta">
         
@@ -447,12 +447,12 @@ transform: translate(-68%, -50%);
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-29 19:15:53'>2019-12-29 19:13</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-31 09:12:47'>2019-12-31 09:10</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:289</span>
+        <span>字数:474</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -482,7 +482,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-text">命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令功能"><span class="toc-text">命令功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用参数"><span class="toc-text">常用参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实用实例"><span class="toc-text">实用实例</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-text">命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令功能"><span class="toc-text">命令功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令实例"><span class="toc-text">命令实例</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -498,30 +498,62 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Linux中用 pwd 命令来查看”当前工作目录“的完整路径。 简单得说，每当你在终端进行操作时，你都会有一个当前工作目录。<br>　　在不太确定当前位置时，就会使用pwd来判定当前目录在文件系统内的确切位置。</p>
-<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><pre><code class="python">$ pwd [选项]
+        <p>rm是常用的命令，该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是删除了链接，原有文件均保持不变。<br>rm是一个危险的命令，使用的时候要特别当心，尤其对于新手，否则整个系统就会毁在这个命令（比如在/（根目录）下执行rm * -rf）。所以，我们在执行rm之前最好先确认一下在哪个目录，到底要删除什么东西，操作时保持高度清醒的头脑。</p>
+<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><pre><code class="python">$ rm [选项] 文件...
 1</code></pre>
-<h3 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h3><p>　　查看”当前工作目录“的完整路径</p>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><p>一般情况下不带任何参数<br>如果目录是链接时：<br>格式：pwd -P 显示出实际路径，而非使用链接（link） 的路径</p>
-<h3 id="实用实例"><a href="#实用实例" class="headerlink" title="实用实例"></a>实用实例</h3><p><strong><code>例一</code>：用 pwd 命令查看当前工作目录的完整路径</strong></p>
-<pre><code class="python">$ pwd
-/home/faker
-12</code></pre>
-<p><strong><code>例二</code>：目录连接链接时，pwd -P 显示出实际路径，而非使用连接（link）路径；pwd显示的是连接路径</strong></p>
-<pre><code class="python">#目录为链接时，输出链接路径
-$ pwd -L
-#目录为链接时，输出物理路径
-$ pwd -P
-/home/faker
-12345</code></pre>
-<p><strong><code>例三</code>：当前目录被删除了，而pwd命令仍然显示那个目录</strong></p>
-<pre><code class="python">$ cd /opt/soft
-$ rm ../soft -rf
-$ pwd
-/opt/soft
-$ /bin/pwd
-/bin/pwd: couldnt find directory entry in “..” with matching i-node
-/home/faker</code></pre>
+<h3 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-f, –force</td>
+<td align="left">忽略不存在的文件，从不给出提示</td>
+</tr>
+<tr>
+<td align="left">-i, –interactive</td>
+<td align="left">进行交互式删除</td>
+</tr>
+<tr>
+<td align="left">-r, -R, –recursive</td>
+<td align="left">指示rm将参数中列出的全部目录和子目录均递归地删除</td>
+</tr>
+<tr>
+<td align="left">-v, –verbose</td>
+<td align="left">详细显示进行的步骤</td>
+</tr>
+<tr>
+<td align="left">–help</td>
+<td align="left">显示此帮助信息并退出</td>
+</tr>
+<tr>
+<td align="left">–version</td>
+<td align="left">输出版本信息并退出</td>
+</tr>
+</tbody></table>
+<h3 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h3><p><strong><code>例一</code>：删除文件file，系统会先询问是否删除</strong></p>
+<pre><code class="python">$ rm file
+1</code></pre>
+<p><strong><code>例二</code>：强行删除file，系统不再提示</strong></p>
+<pre><code class="python">$ rm -f file
+1</code></pre>
+<p><strong><code>例三</code>：删除任何.log文件；删除前逐一询问确认</strong></p>
+<pre><code class="python">$ rm -i *.log
+1</code></pre>
+<p><strong><code>例四</code>：对test文件夹进行递归删除</strong></p>
+<pre><code class="python">$ rm -r test
+1</code></pre>
+<p><strong><code>例五</code>：递归删除，系统不用一一确认</strong></p>
+<pre><code class="python">$ rm -rf test
+1</code></pre>
+<p><strong><code>例六</code>：删除以 -f 开头的文件</strong></p>
+<pre><code class="python">$ rm -- -f
+1</code></pre>
+<p><strong><code>例七</code>：自定义回收站功能</strong></p>
+<pre><code class="python">#下面的操作过程模拟了回收站的效果，即删除文件的时候只是把文件放到一个临时目录中，这样在需要的时候还可以恢复过来。
+$ myrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &quot;$@&quot; $D &amp;&amp; echo &quot;moved to $D ok&quot;; }</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -535,12 +567,12 @@ $ /bin/pwd
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>每天一个linux命令(3)pwd</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">289</span></p>
+    <p><span class="copy-title">文章标题:</span>每天一个linux命令（5）rm</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">474</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-29, 19:13:03</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-29, 19:15:53</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/29/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(3)%20pwd/" title="每天一个linux命令(3)pwd">http://yoursite.com/2019/12/29/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(3)%20pwd/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-31, 09:10:35</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-31, 09:12:47</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/31/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%885%EF%BC%89rm/" title="每天一个linux命令（5）rm">http://yoursite.com/2019/12/31/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%885%EF%BC%89rm/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
