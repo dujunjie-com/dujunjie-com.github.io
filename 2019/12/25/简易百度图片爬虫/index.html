@@ -7,16 +7,17 @@
   <meta name="keywords" content=" 爬虫 ">
   <meta name="description" content="简易百度图片爬虫 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="异常介绍当我们的程序发生一些解释器无法继续处理下去的事情，我们的解释器无法执行无法编译，这时会抛出错误(异常) 一般的异常是一些逻辑错误，语法错误，无法生成结果等 抛出错误(异常)之后，我们的程序将无法正常执行下去(抛出的错误会使我们的程序(一般是终止)做错误的默认处理)但是我们也可以自己去改写出现错误之后的默认处理动作，也叫做捕获异常；这么做的目的就是为了提高我们程序的健壮性，应对各种复杂的互联">
+<meta name="description" content="rm是常用的命令，该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是删除了链接，原有文件均保持不变。rm是一个危险的命令，使用的时候要特别当心，尤其对于新手，否则整个系统就会毁在这个命令（比如在&#x2F;（根目录）下执行rm * -rf）。所以，我们在执行rm之前最好先确认一下在哪个目录，到底要删除什么东西，操作时保持高度清醒的头脑。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="异常处理">
-<meta property="og:url" content="http://yoursite.com/2019/12/31/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="每天一个linux命令（5）rm">
+<meta property="og:url" content="http://yoursite.com/2019/12/31/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(5)%20rm/index.html">
 <meta property="og:site_name" content="Besos的博客">
-<meta property="og:description" content="异常介绍当我们的程序发生一些解释器无法继续处理下去的事情，我们的解释器无法执行无法编译，这时会抛出错误(异常) 一般的异常是一些逻辑错误，语法错误，无法生成结果等 抛出错误(异常)之后，我们的程序将无法正常执行下去(抛出的错误会使我们的程序(一般是终止)做错误的默认处理)但是我们也可以自己去改写出现错误之后的默认处理动作，也叫做捕获异常；这么做的目的就是为了提高我们程序的健壮性，应对各种复杂的互联">
+<meta property="og:description" content="rm是常用的命令，该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是删除了链接，原有文件均保持不变。rm是一个危险的命令，使用的时候要特别当心，尤其对于新手，否则整个系统就会毁在这个命令（比如在&#x2F;（根目录）下执行rm * -rf）。所以，我们在执行rm之前最好先确认一下在哪个目录，到底要删除什么东西，操作时保持高度清醒的头脑。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-31T01:13:57.000Z">
-<meta property="article:modified_time" content="2019-12-31T01:31:35.820Z">
+<meta property="article:published_time" content="2019-12-31T01:10:35.000Z">
+<meta property="article:modified_time" content="2019-12-31T01:12:47.854Z">
 <meta property="article:author" content="Besos的博客">
+<meta property="article:tag" content="命令">
 <meta name="twitter:card" content="summary">
 
 
@@ -347,14 +348,6 @@ transform: translate(-68%, -50%);
             <span class="post-date" title="2019-12-26 08:43:12">2019/12/26</span>
         </a>
         
-        <a  class="Linux "
-           href="/2019/12/27/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%882%EF%BC%89cd/"
-           data-tag="命令"
-           data-author="" >
-            <span class="post-title" title="每天一个linux命令（2）cd">每天一个linux命令（2）cd</span>
-            <span class="post-date" title="2019-12-27 15:44:58">2019/12/27</span>
-        </a>
-        
         <a  class="python "
            href="/2019/12/27/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0/"
            data-tag=""
@@ -369,14 +362,6 @@ transform: translate(-68%, -50%);
            data-author="" >
             <span class="post-title" title="每天一个linux命令(3)pwd">每天一个linux命令(3)pwd</span>
             <span class="post-date" title="2019-12-29 19:13:03">2019/12/29</span>
-        </a>
-        
-        <a  class="Linux "
-           href="/2019/12/26/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%881%EF%BC%89ls/"
-           data-tag="命令"
-           data-author="" >
-            <span class="post-title" title="每天一个linux命令(1) ls">每天一个linux命令(1) ls</span>
-            <span class="post-date" title="2019-12-26 19:32:45">2019/12/26</span>
         </a>
         
         <a  class="python "
@@ -404,7 +389,23 @@ transform: translate(-68%, -50%);
         </a>
         
         <a  class="Linux "
-           href="/2019/12/31/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%885%EF%BC%89rm/"
+           href="/2019/12/27/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(2)%20cd/"
+           data-tag="命令"
+           data-author="" >
+            <span class="post-title" title="每天一个linux命令（2）cd">每天一个linux命令（2）cd</span>
+            <span class="post-date" title="2019-12-27 15:44:58">2019/12/27</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/12/26/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(1)%20ls/"
+           data-tag="命令"
+           data-author="" >
+            <span class="post-title" title="每天一个linux命令(1) ls">每天一个linux命令(1) ls</span>
+            <span class="post-date" title="2019-12-26 19:32:45">2019/12/26</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/12/31/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(5)%20rm/"
            data-tag="命令"
            data-author="" >
             <span class="post-title" title="每天一个linux命令（5）rm">每天一个linux命令（5）rm</span>
