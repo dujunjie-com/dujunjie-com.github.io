@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>异常处理 | Besos的博客</title>
+  <title>Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
   <meta name="keywords" content="">
-  <meta name="description" content="异常处理 | Besos的博客">
+  <meta name="description" content="Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="LMxJyO5q7Y">
 <meta property="og:type" content="website">
@@ -423,30 +423,22 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-异常处理" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">异常处理</h1>
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="python">python</a>
-            
-        </span>
-        
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-31 09:31:35'>2019-12-31 09:13</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-06 20:02:56'>2020-01-06 20:08</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.4k</span>
+        <span>字数:1</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -476,7 +468,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#异常介绍"><span class="toc-text">异常介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些常见的异常"><span class="toc-text">一些常见的异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常捕获"><span class="toc-text">异常捕获</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#try…finally"><span class="toc-text">try…finally</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#try…else"><span class="toc-text">try…else</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手动抛出异常"><span class="toc-text">手动抛出异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义异常"><span class="toc-text">自定义异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#断言"><span class="toc-text">断言</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -492,207 +484,7 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="异常介绍"><a href="#异常介绍" class="headerlink" title="异常介绍"></a>异常介绍</h3><p>当我们的程序发生一些解释器无法继续处理下去的事情，我们的解释器无法执行无法编译，这时会抛出<strong>错误</strong>(<strong>异常</strong>) 一般的异常是一些<strong>逻辑错误</strong>，<strong>语法错误</strong>，<strong>无法生成结果</strong>等 抛出错误(<strong>异常</strong>)之后，我们的程序将无法正常执行下去(抛出的错误会使我们的程序(一般是<strong>终止</strong>)做错误的默认处理)<br>但是我们也可以自己去<strong>改写</strong>出现错误之后的<strong>默认处理动作</strong>，也叫做<strong>捕获</strong>异常；这么做的目的就是为了提高我们程序的健壮性，应对各种复杂的互联网计算机环境</p>
-<h3 id="一些常见的异常"><a href="#一些常见的异常" class="headerlink" title="一些常见的异常"></a>一些常见的异常</h3><blockquote>
-<p>尝试访问未声明变量：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; a
-Traceback (most recent call last):
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-NameError: name &#39;a&#39; is not defined</code></pre>
-<hr>
-<blockquote>
-<p>除数为0：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; 1/0
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-ZeroDivisionError: integer division or modulo by zero</code></pre>
-<hr>
-<blockquote>
-<p>语法错误：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; if  
-    File &quot;&lt;stdin&gt;&quot;, line 1    
-        if     
-         ^
-SyntaxError: invalid syntax</code></pre>
-<hr>
-<blockquote>
-<p>访问字典中不存在的key值：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; mydict = {1:&#39;a&#39;,2:&#39;b&#39;}
-&gt;&gt;&gt; mydict[3]
-Traceback (most recent call last):
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-KeyError: 3</code></pre>
-<hr>
-<blockquote>
-<p>索引超出范围：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; mylist = [1,2,3,4,5]
-&gt;&gt;&gt; mylist[5]
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-IndexError: list index out of range</code></pre>
-<hr>
-<blockquote>
-<p>访问未知的对象属性：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; mylist = [1,2,3,4,5]
-&gt;&gt;&gt; mylist[5]
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-IndexError: list index out of range</code></pre>
-<hr>
-<blockquote>
-<p>缩进错误：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; a = 1
-&gt;&gt;&gt; if a == 1:
-... print &#39;a==1&#39;  
-    File &quot;&lt;stdin&gt;&quot;, line 2    
-        print &#39;a==1&#39;        
-            ^
-IndentationError: expected an indented block</code></pre>
-<hr>
-<h3 id="异常捕获"><a href="#异常捕获" class="headerlink" title="异常捕获"></a>异常捕获</h3><p>将可能发生错误的语句写到<strong>try</strong>语句部分<br>使用<strong>except</strong>语句捕获对应异常<br>如果不明确捕捉的异常，可使用<strong>Exception</strong>将所有异常列为被捕捉对象</p>
-<blockquote>
-<p><strong>语法格式</strong>：</p>
-</blockquote>
-<pre><code class="python">try:    
-    语句
-except 异常:    
-    捕获异常后的执行语句</code></pre>
-<hr>
-<pre><code class="python">&gt;&gt;&gt; def func():
-...     print(1 / 0)
-...
-&gt;&gt;&gt; func()
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;  
-    File &quot;&lt;stdin&gt;&quot;, line 2, in func
-ZeroDivisionError: division by zero</code></pre>
-<hr>
-<pre><code class="python">&gt;&gt;&gt; try:
-...     func()
-... except ZeroDivisionError:
-...     print(&#39;除数为0&#39;)
-...
-除数为0</code></pre>
-<hr>
-<h4 id="try…finally"><a href="#try…finally" class="headerlink" title="try…finally"></a>try…finally</h4><blockquote>
-<p><strong>语法格式</strong>：</p>
-</blockquote>
-<pre><code class="python">try:    
-    语句
-except Exception:    
-    捕获异常后的执行语句
-finally:    
-    不管异常抛出，都将执行这里的语句</code></pre>
-<hr>
-<pre><code class="python">&gt;&gt;&gt; def func():
-...     print(1 / 0)
-...&gt;&gt;&gt; try:
-...     func()
-... except Exception:
-...     print(&#39;出错了&#39;)
-... finally:
-...     print(&#39;finally&#39;)
-...
-出错了</code></pre>
-<hr>
-<h4 id="try…else"><a href="#try…else" class="headerlink" title="try…else"></a>try…else</h4><blockquote>
-<p>我们一般在<strong>else</strong>语句中执行关闭套接字，关闭文件句柄，线程，进程资源释放，做一些对象内存释放的工作<br>为什么不在<strong>finally</strong>中呢？<br>这是因为可能因为异常抛出，我们对应的资源句柄连创建都没有完成，也就没有必要对应的释放</p>
-</blockquote>
-<pre><code class="python">try:    
-    语句
-except Exception:    
-    捕获异常后的执行语句
-else:    
-    这里语句只在没有异常触发时执行</code></pre>
-<hr>
-<pre><code class="python">&gt;&gt;&gt; try:
-...     1 / 0
-... except Exception:
-...     print(&#39;Error&#39;)
-... else:
-...     print(&#39;没有出错&#39;)
-...
-Error</code></pre>
-<blockquote>
-<p>在异常捕获时，我们一般使用<strong>else</strong>语句与<strong>finally</strong>语句配合使用<br><strong>finally</strong>语句被用作最终结束工作，做一些提示或日志写入等<br>而<strong>else</strong>常用在被捕获语句成功执行后的一些资源释放工作</p>
-</blockquote>
-<hr>
-<h3 id="手动抛出异常"><a href="#手动抛出异常" class="headerlink" title="手动抛出异常"></a>手动抛出异常</h3><blockquote>
-<p>使用<strong>raise</strong>语句手动抛出异常：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; raise TypeError(&#39;出错了&#39;)
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-TypeError: 出错了
-
-&gt;&gt;&gt; raise TypeError
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-TypeError
-
-&gt;&gt;&gt; raise Exception(&#39;出错了&#39;)
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-Exception: 出错了</code></pre>
-<hr>
-<ul>
-<li>手动抛出的异常必须是在当前环境下<strong>已注册</strong>的；若未定义，则<strong>报错</strong></li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; raise MyError
-Traceback (most recent call last):  
-    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-NameError: name &#39;MyError&#39; is not defined</code></pre>
-<hr>
-<blockquote>
-<ul>
-<li>异常也是常用的程序间通信的方式，类似信号</li>
-<li>异常也经常用在测试方面：在对某些驱动进行测试时，我们可以在必要情况下手动抛出异常</li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><ul>
-<li>在Python中所有的异常都是从<strong>BaseException</strong>这个根异常类派生</li>
-<li>这个根异常类派生如下异常类：<ul>
-<li><strong>SystemExit</strong>(<strong>系统中断</strong>)</li>
-<li><strong>KeyboardIterrupt</strong>(<strong>ctrl+c</strong>)</li>
-<li><strong>Exception</strong>(<strong>内建异常类</strong>)</li>
-</ul>
-</li>
-<li>我们考虑的所有内建异常都是继承自<strong>Exception</strong>类 我们可以通过继承<strong>Exception</strong>类，来实现自定义异常</li>
-</ul>
-<pre><code class="python">class Myerror(Exception):  
-    pass
-def checklist(mylist,index): #这个函数输出对应索引位置上的值    
-        print (mylist[index])
-try:    
-        mylist = input(&#39;请输入一个序列:&#39;)    
-        index = int(input(&#39;请输入访问位置:&#39;))    
-        if index &gt; len(mylist): #如果传入的索引值超过序列最大索引位置        
-                raise Myerror #raise抛出自定义错误
-except Myerror: #捕获自定义错误    
-        print (&#39;the index is out of range!&#39;)
-else:    
-        checklist(mylist,index)
-
-
-
-C:\Users\Administrator\Desktop&gt;python 1.py
-请输入一个序列:abc
-请输入访问位置:4
-the index is out of range!</code></pre>
-<hr>
-<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><blockquote>
-<p>断言一般用来判断一些bool语句，在断言成功时不采取任何措施，否则触发AssertionError(断言错误)的异常：</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; assert 1 == 0Traceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;AssertionError&gt;&gt;&gt; assert not False&gt;&gt;&gt; #没有抛出断言异常</code></pre>
-
+        LMxJyO5q7Y
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
     </div>
@@ -703,18 +495,6 @@ the index is out of range!</code></pre>
     <a  class="dashang" onclick="dashangToggle()">赏</a>
 </p>
 
-
-<div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>异常处理</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.4k</span></p>
-    <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-31, 09:13:57</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-31, 09:31:35</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/31/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" title="异常处理">http://yoursite.com/2019/12/31/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</a>
-    <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-    </p>
-</div>
 
 
 
