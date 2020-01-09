@@ -450,7 +450,7 @@ transform: translate(-68%, -50%);
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-30 10:40:09'>2019-12-30 10:39</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-09 10:03:09'>2019-12-30 10:39</time>
         
     </div>
     <div class="article-meta">
@@ -485,7 +485,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是闭包"><span class="toc-text">什么是闭包?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包简单示例："><span class="toc-text">闭包简单示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包思考："><span class="toc-text">闭包思考：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现闭包："><span class="toc-text">实现闭包：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -502,16 +502,14 @@ transform: translate(-68%, -50%);
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>什么是闭包?</p>
-</blockquote>
+<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h3></blockquote>
 <ul>
 <li><strong>内部函数</strong>对<strong>外部函数</strong>作用域里对象的<strong>引用</strong>(非全局变量)，则称内部函数为闭包</li>
 <li>一个闭包就是你调用了外部函数，外部函数返回内部函数,此时的内部函数就叫做闭包函数</li>
 <li>闭包在运行时可以有多个实例，不同的引用环境和相同的函数组合可以产生不同的实例</li>
 </ul>
 <blockquote>
-<p>闭包简单示例：</p>
-</blockquote>
+<h3 id="闭包简单示例："><a href="#闭包简单示例：" class="headerlink" title="闭包简单示例："></a>闭包简单示例：</h3></blockquote>
 <pre><code class="python">def wai():    a = 1    def nei():#闭包        print(a)    return neifunc = wai()func()</code></pre>
 <blockquote>
 <p>通过这个例子大家可以看到，在外部函数中，本应该在<strong>wai函数</strong>执行完死掉的变量<strong>a</strong>，由于此时有了 内部函数的引用，从而使得这个变量并不会死去，而是类似于继承一样，通过<strong>nei函数</strong>又存活了下来</p>
@@ -539,8 +537,7 @@ transform: translate(-68%, -50%);
 <pre><code class="python">[1, 2, 3, 4, 5][2, 2, 3, 4, 5][3, 2, 3, 4, 5][4, 2, 3, 4, 5]</code></pre>
 <hr>
 <blockquote>
-<p><strong>闭包思考</strong>：</p>
-<ul>
+<h3 id="闭包思考："><a href="#闭包思考：" class="headerlink" title="闭包思考："></a><strong>闭包思考</strong>：</h3><ul>
 <li>闭包<strong>私有化</strong>了变量，实现了类似于面向对象中实例的功能</li>
 <li>由于闭包<strong>引用</strong>了外部函数的局部变量，则<strong>外部函数</strong>中的<strong>局部变量</strong>没有及时释放，消耗内存</li>
 <li>在python中，使用闭包的另一个场景就是<strong>装饰器</strong>，也叫<strong>语法糖</strong> @</li>
@@ -548,8 +545,7 @@ transform: translate(-68%, -50%);
 </blockquote>
 <hr>
 <blockquote>
-<p><strong>实现闭包</strong>：</p>
-<ul>
+<h3 id="实现闭包："><a href="#实现闭包：" class="headerlink" title="实现闭包："></a><strong>实现闭包</strong>：</h3><ul>
 <li>函数嵌套</li>
 <li>内部函数对外部函数作用域里对象的引用</li>
 <li>外部函数返回内部函数对象</li>
@@ -572,7 +568,7 @@ transform: translate(-68%, -50%);
     <p><span class="copy-title">文章字数:</span><span class="post-count">645</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-30, 10:39:01</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-30, 10:40:09</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:03:09</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/30/%E5%87%BD%E6%95%B0%E9%97%AD%E5%8C%85/" title="函数闭包">http://yoursite.com/2019/12/30/%E5%87%BD%E6%95%B0%E9%97%AD%E5%8C%85/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。

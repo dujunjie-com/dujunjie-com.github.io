@@ -450,7 +450,7 @@ transform: translate(-68%, -50%);
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-27 15:59:57'>2019-12-27 15:48</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-09 10:05:43'>2019-12-27 15:48</time>
         
     </div>
     <div class="article-meta">
@@ -485,7 +485,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰器函数"><span class="toc-text">装饰器函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#被装饰的函数带有参数"><span class="toc-text">被装饰的函数带有参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#装饰器函数带有参数"><span class="toc-text">装饰器函数带有参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰器函数"><span class="toc-text">装饰器函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法："><span class="toc-text">语法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行后的结果："><span class="toc-text">执行后的结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#被装饰的函数带有参数"><span class="toc-text">被装饰的函数带有参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰器函数带有参数"><span class="toc-text">装饰器函数带有参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -504,8 +504,7 @@ transform: translate(-68%, -50%);
         <h3 id="装饰器函数"><a href="#装饰器函数" class="headerlink" title="装饰器函数"></a>装饰器函数</h3><blockquote>
 <p>装饰器：在函数运行时增加功能且不影响这个函数原有内容</p>
 </blockquote>
-<p>语法：</p>
-<pre><code class="python">@func1def func2():    pass</code></pre>
+<h3 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h3><pre><code class="python">@func1def func2():    pass</code></pre>
 <blockquote>
 <p><strong>@</strong>符号为装饰器函数语法，也常叫做语法糖</p>
 </blockquote>
@@ -525,8 +524,7 @@ def foo():
 foo()</code></pre>
 <hr>
 <blockquote>
-<p>执行后的结果：</p>
-</blockquote>
+<h3 id="执行后的结果："><a href="#执行后的结果：" class="headerlink" title="执行后的结果："></a>执行后的结果：</h3></blockquote>
 <pre><code class="python">this is nei
 this is foo</code></pre>
 <hr>
@@ -555,7 +553,7 @@ this is foo</code></pre>
 <blockquote>
 <p>接下来，让我们<strong>充满动力</strong>的继续看这样一个例子</p>
 </blockquote>
-<h4 id="被装饰的函数带有参数"><a href="#被装饰的函数带有参数" class="headerlink" title="被装饰的函数带有参数"></a>被装饰的函数带有参数</h4><blockquote>
+<h3 id="被装饰的函数带有参数"><a href="#被装饰的函数带有参数" class="headerlink" title="被装饰的函数带有参数"></a>被装饰的函数带有参数</h3><blockquote>
 <p>我们考虑到，之前的普通装饰器并不能解决；<strong>被装饰函数</strong>带有参数的问题，如果有这样一个函数</p>
 </blockquote>
 <pre><code class="python">def foo(a,b):    
@@ -581,7 +579,7 @@ foo(3,5)</code></pre>
 <blockquote>
 <p>执行后的结果，并不是本身的<strong>3+5</strong><br>装饰器函数内部的<strong>闭包</strong>函数<strong>参数</strong>部分接收到了<strong>被装饰函数</strong>传入的<strong>参数</strong>，并且在其内部进行了值的修改<br>最后在<strong>闭包函数</strong>的<strong>返回值</strong>处，将修改后的函数传入到<strong>return func(a,b)</strong>，此时被装饰函数调用，但是传入的参数已经不再是之前的<strong>3</strong>和<strong>5</strong>了</p>
 </blockquote>
-<h4 id="装饰器函数带有参数"><a href="#装饰器函数带有参数" class="headerlink" title="装饰器函数带有参数"></a>装饰器函数带有参数</h4><blockquote>
+<h3 id="装饰器函数带有参数"><a href="#装饰器函数带有参数" class="headerlink" title="装饰器函数带有参数"></a>装饰器函数带有参数</h3><blockquote>
 <p>最后，让我们看一下装饰器函数的终极套路<br>如果我们装饰器函数需要参数怎么办？<br>你会发现，此时<strong>wai</strong>函数和<strong>nei</strong>函数的参数部分都有了自己的意义，那么这个装饰器函数的参数该怎么接收？</p>
 </blockquote>
 <pre><code class="python">def arg_func(choice=&#39;Man&#39;): #我们额外包装一层函数用来接收装饰器函数的参数    
@@ -607,7 +605,7 @@ func(name)</code></pre>
 </blockquote>
 <pre><code class="python">请输入你的性别:Man请输入你的名字:张三你好: 张三去工作你的名字是: 张三
 请输入你的性别:Woman请输入你的名字:李四你好: 李四去逛街你的名字是: 李四</code></pre>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>实现装饰器</p>
 <ul>
 <li>定义闭包函数</li>
@@ -634,7 +632,7 @@ func(name)</code></pre>
     <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-27, 15:48:51</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-27, 15:59:57</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:05:43</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/27/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0/" title="装饰器函数">http://yoursite.com/2019/12/27/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。

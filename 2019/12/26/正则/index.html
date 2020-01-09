@@ -456,7 +456,7 @@ transform: translate(-68%, -50%);
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-26 19:31:15'>2019-12-26 08:43</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-09 10:05:21'>2019-12-26 08:43</time>
         
     </div>
     <div class="article-meta">
@@ -491,7 +491,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则"><span class="toc-text">正则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#re模块函数"><span class="toc-text">re模块函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#贪婪非贪婪"><span class="toc-text">贪婪非贪婪</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则"><span class="toc-text">正则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#re模块函数"><span class="toc-text">re模块函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贪婪非贪婪"><span class="toc-text">贪婪非贪婪</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -558,7 +558,7 @@ transform: translate(-68%, -50%);
 <p><strong>否定匹配</strong>：<strong>[^]</strong><br><strong>[^a]</strong>：匹配除了a之外的所有字符</p>
 </blockquote>
 <hr>
-<h4 id="re模块函数"><a href="#re模块函数" class="headerlink" title="re模块函数"></a>re模块函数</h4><blockquote>
+<h3 id="re模块函数"><a href="#re模块函数" class="headerlink" title="re模块函数"></a>re模块函数</h3><blockquote>
 <p><strong>re.compile(pattern)</strong><br>编译正则表达式<br>一般的，特殊字符再进行正则匹配的时候，如果你不预先编译正则表达式，解释器也会在你传入参数的时候进行编译<br>一些常用正则表达式，我们可以提前使用该函数进行预先编译，提高程序的效率</p>
 </blockquote>
 <pre><code class="python">&gt;&gt;&gt; import re&gt;&gt;&gt; regex = re.compile(&#39;abc&#39;)</code></pre>
@@ -590,7 +590,7 @@ transform: translate(-68%, -50%);
 </blockquote>
 <pre><code class="python">&gt;&gt;&gt; var = re.sub(&#39;\*&#39;,&#39;_&#39;,&#39;a*b*c*&#39;)&gt;&gt;&gt; var&#39;a_b_c_&#39;&gt;&gt;&gt; var = re.subn(&#39;\*&#39;,&#39;_&#39;,&#39;a*b*c*&#39;)&gt;&gt;&gt; var(&#39;a_b_c_&#39;, 3)</code></pre>
 <hr>
-<h4 id="贪婪非贪婪"><a href="#贪婪非贪婪" class="headerlink" title="贪婪非贪婪"></a>贪婪非贪婪</h4><p>如果<strong>问号**</strong>?<strong>紧跟在任何使用</strong>闭合<strong>（类似*</strong> +** 这样的操作符）的匹配后面， 它将直接要求正则表达式引擎匹配<strong>尽可能少</strong>的次数，这叫做<strong>非贪婪</strong></p>
+<h3 id="贪婪非贪婪"><a href="#贪婪非贪婪" class="headerlink" title="贪婪非贪婪"></a>贪婪非贪婪</h3><p>如果<strong>问号**</strong>?<strong>紧跟在任何使用</strong>闭合<strong>（类似*</strong> +** 这样的操作符）的匹配后面， 它将直接要求正则表达式引擎匹配<strong>尽可能少</strong>的次数，这叫做<strong>非贪婪</strong></p>
 <p><strong>贪婪匹配</strong>：正则表达式引擎将试图“吸收”匹配该模式的<strong>尽可能多</strong>的字符<br><strong>非贪婪匹配</strong>：问号要求正则表达式引擎去<strong>“偷懒”</strong>，如果可能，就在当前的正则表达式中尽<strong>可能少</strong>地匹配字符，留下尽可能多的字符给后面的模式</p>
 <hr>
 <pre><code class="python">&gt;&gt;&gt; import re&gt;&gt;&gt; mystr = &#39;a*b*c*d*e*f*g&#39;ac&gt;&gt;&gt; re.findall(&#39;.+?&#39;, mystr) #非贪婪模式进行匹配[&#39;a&#39;, &#39;*&#39;, &#39;b&#39;, &#39;*&#39;, &#39;c&#39;, &#39;*&#39;, &#39;d&#39;, &#39;*&#39;, &#39;e&#39;, &#39;*&#39;, &#39;f&#39;, &#39;*&#39;, &#39;g&#39;]&gt;&gt;&gt; re.findall(&#39;.+&#39;, mystr) #贪婪模式进行匹配[&#39;a*b*c*d*e*f*g&#39;]&gt;&gt;&gt; re.findall(&#39;.*&#39;, mystr) #贪婪模式进行匹配[&#39;a*b*c*d*e*f*g&#39;, &#39;&#39;]&gt;&gt;&gt; re.findall(&#39;.*?&#39;, mystr) #非贪婪模式进行匹配[&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;] #结果不同在于对+号和*号特殊字符的解释</code></pre>
@@ -611,7 +611,7 @@ transform: translate(-68%, -50%);
     <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-26, 08:43:12</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-26, 19:31:15</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:05:21</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/26/%E6%AD%A3%E5%88%99/" title="正则">http://yoursite.com/2019/12/26/%E6%AD%A3%E5%88%99/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
