@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>时间模块 | Besos的博客</title>
+  <title>PostgreSQL初体验 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" python ">
-  <meta name="description" content="时间模块 | Besos的博客">
+  <meta name="keywords" content=" PostgreSQL ">
+  <meta name="description" content="PostgreSQL初体验 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="创建操作系统用户创建一个新的Linux用户：dbuser $sudo adduser dbuser #创建一个新的Linux用户：dbuser 1 切换到postgres用户 $sudo su - postgres #切换到postgres用户 1 系统用户postgres以同名数据库用户的身份，登录数据库 $psql #系统用户postgres以同名数据库用户的身份，登录数据库 1 成功登录到控">
 <meta property="og:type" content="article">
@@ -476,9 +476,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-时间模块" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-PostgreSQL初体验" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">时间模块</h1>
+        <h1 class="article-title">PostgreSQL初体验</h1>
     
     <div class="article-meta">
         
@@ -486,26 +486,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="python">python</a>
+                <a  data-rel="数据库">数据库</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color2">python</a>
+            <a class="color1">PostgreSQL</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-01-09 10:03:54'>2019-12-24 08:50</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-14 19:43:18'>2020-01-14 19:41</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:838</span>
+        <span>字数:249</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -535,7 +535,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间模块"><span class="toc-text">时间模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#格式："><span class="toc-text">格式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datetime模块"><span class="toc-text">datetime模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些时间实例中的函数："><span class="toc-text">一些时间实例中的函数：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建操作系统用户"><span class="toc-text">创建操作系统用户</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -551,177 +551,33 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="时间模块"><a href="#时间模块" class="headerlink" title="时间模块"></a>时间模块</h3><blockquote>
-<p>Python中有很多方便我们处理时间信息的模块</p>
-<ul>
-<li>*<em>time *</em>模块</li>
-<li><strong>datetime</strong> 模块</li>
-<li>*<em>pytz *</em>模块</li>
-<li>*<em>dateutil *</em>模块</li>
-</ul>
-</blockquote>
+        <h2 id="创建操作系统用户"><a href="#创建操作系统用户" class="headerlink" title="创建操作系统用户"></a>创建操作系统用户</h2><p>创建一个新的Linux用户：dbuser</p>
+<pre><code class="python">$sudo adduser dbuser #创建一个新的Linux用户：dbuser
+1</code></pre>
+<p>切换到postgres用户</p>
+<pre><code class="python">$sudo su - postgres #切换到postgres用户
+1</code></pre>
+<p>系统用户postgres以同名数据库用户的身份，登录数据库</p>
+<pre><code class="python">$psql #系统用户postgres以同名数据库用户的身份，登录数据库
+1</code></pre>
+<p>成功登录到控制台后，显示 <code>postgres=#</code></p>
 <blockquote>
-<p>这里我们着重介绍的是前两种</p>
+<p>注意：后面分号不能省略</p>
 </blockquote>
-<blockquote>
-<p><strong>time.time()</strong><br>返回当前时间于 <strong>Unix</strong>时间 <strong>(1970.1.1 00:00:00)</strong>经过的秒数<br>返回值也称作<strong>时间戳</strong>，是一个<strong>浮点数</strong>类型</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.localtime(seconds)</strong><br>将<strong>时间戳秒数</strong>转换为表示<strong>本地时间</strong>的<strong>时间元组</strong><br>如果没有传入参数，则直接返回<strong>当前本地时间</strong>的<strong>时间元组</strong></p>
-<blockquote>
-<p>时间元组：<strong>(tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst)</strong></p>
-<ul>
-<li><strong>tm_wday</strong>：从0开始，表示星期几</li>
-<li><strong>tm_yday</strong>：第几天</li>
-<li><strong>tm_isdst</strong>：夏令时的决定旗标</li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.sleep(seconds)</strong><br><strong>推迟</strong>程序的运行，参数为推迟的<strong>秒数</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.clock()</strong><br>一般用来衡量<strong>程序</strong>的<strong>耗时</strong></p>
-<ul>
-<li><p><strong>win</strong></p>
-<p>：</p>
-<ul>
-<li>第一次调用：<strong>浮点数形式</strong>返回当前<strong>CPU</strong>运行时间</li>
-<li>第二次调用：<strong>浮点数形式</strong>返回距离<strong>上次调用</strong>该函数至此次的<strong>时间间隔</strong></li>
-</ul>
-</li>
-<li><p><strong>Linux</strong></p>
-<p>：</p>
-<ul>
-<li>浮点数返回当前的程序执行时间</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.asctime(tupletime)</strong><br>将一个<strong>时间元组</strong>返回为一个<strong>可读形式</strong>字符串</p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; time.asctime( time.localtime() )&#39;Fri Feb  2 22:26:36 2018&#39;</code></pre>
-<hr>
-<blockquote>
-<p><strong>time.strftime( format [, tuple] )</strong><br>将<strong>时间元组</strong>根据指定<strong>格式</strong>返回为<strong>可读字符串</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>time.strptime( string, format )</strong><br>将<strong>可读字符串</strong>根据<strong>格式</strong>返回为<strong>时间元组</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<h3 id="格式："><a href="#格式：" class="headerlink" title="格式："></a><strong>格式</strong>：</h3><ul>
-<li><strong>%Y</strong>：年份</li>
-<li><strong>%m</strong>：月份</li>
-<li><strong>%d</strong>：天数</li>
-<li><strong>%H</strong>：小时</li>
-<li><strong>%M</strong>：分钟</li>
-<li><strong>%S</strong>：秒</li>
-<li><strong>%x</strong>：天/月/年</li>
-<li><strong>%X</strong>：当前 时:分:秒</li>
-<li><strong>%A</strong>：星期 (全称)</li>
-<li><strong>%a</strong>：星期 (缩写)</li>
-</ul>
-</blockquote>
-<pre><code class="python"> &gt;&gt;&gt; time.strftime(&#39;%Y %m %d&#39;,time.localtime())&#39;2018 02 02&#39;&gt;&gt;&gt; time.strptime(&#39;2018 02 02&#39;,&#39;%Y %m %d&#39;)time.struct_time(tm_year=2018, tm_mon=2, tm_mday=2, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=4, tm_yday=33, tm_isdst=-1)</code></pre>
-<hr>
-<h3 id="datetime模块"><a href="#datetime模块" class="headerlink" title="datetime模块"></a>datetime模块</h3><blockquote>
-<p><strong>子模块介绍</strong>：在<strong>datetime</strong>模块分别包含了以下三个模块进行时间处理</p>
-<blockquote>
-<ul>
-<li><strong>datetime.datetime</strong>：处理年月日，时分秒</li>
-<li><strong>datetime.date</strong>：处理年月日</li>
-<li><strong>datetime.time</strong>：处理时分秒</li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>datetime.datetime.now()</strong><br><strong>datetime.datetime.today()</strong><br>获取<strong>当前时间</strong>，包含<strong>年月日</strong>，<strong>时分秒</strong>，<strong>微秒</strong><br>返回类型为<strong>datetime.datetime</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>datetime.date.today()</strong><br>返回<strong>当前时间</strong>，只包含<strong>年月日</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>datetime.datetime.delta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)</strong><br>表示<strong>时间差</strong></p>
-</blockquote>
-<pre><code class="python">&gt;&gt;&gt; now = datetime.datetime.now()&gt;&gt;&gt; nowdatetime.datetime(2018, 2, 10, 17, 12, 18, 220858)&gt;&gt;&gt; de = datetime.timedelta(days=30)&gt;&gt;&gt; de + nowdatetime.datetime(2018, 3, 12, 17, 12, 18, 220858)</code></pre>
-<hr>
-<blockquote>
-<h3 id="一些时间实例中的函数："><a href="#一些时间实例中的函数：" class="headerlink" title="一些时间实例中的函数："></a>一些时间实例中的函数：</h3><blockquote>
-<ul>
-<li><strong>res = datetime.datetime.today()</strong></li>
-<li><strong>res = datetime.date.today()</strong></li>
-<li><strong>res = datetime.time(10,20,10)</strong></li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p>一些<strong>通用</strong>的<strong>实例函数</strong>，在下<strong>列举</strong>：</p>
-</blockquote>
-<hr>
-<blockquote>
-<ul>
-<li>*<em>res.year *</em>：年</li>
-<li><strong>res.month</strong>：月</li>
-<li><strong>res.day</strong>：日</li>
-<li><strong>res.hour</strong>： 时</li>
-<li><strong>res.minute</strong>：分</li>
-<li><strong>res.second</strong>：秒</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.timestamp()</strong><br>获取当前时间戳</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.timetuple()</strong><br>获取当前时间元组</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.ctime()</strong><br>返回一个字符串日期</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.replace(year, month, day, hour, minute, second)</strong><br>将指定值<strong>替换</strong>后返回一个新的<strong>date</strong>数据</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.timetuple()</strong><br>返回一个<strong>时间元组</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.weekday() **</strong><br>从0开始<strong>返回当前时间是星期几<br>\</strong>星期一为0<strong>，</strong>星期日为6**</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.isoweekday()</strong><br>以<strong>ISO</strong>时间标准格式从<strong>1</strong>开始返回当前时间是星期几<br><strong>星期一为1</strong>，<strong>星期日为7</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.isocalendar()</strong><br><strong>ISO</strong>表示格式的<strong>时间元组</strong><br><strong>(年，月，日)</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>res.isoformat()</strong><br>返回 一个<strong>‘YYYY-MM-DD’</strong>的<strong>字符串格式</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>构造</strong>自己的时间</p>
-<blockquote>
-<p><strong>datetime.datetime(2018, 2, 2, 23, 11, 2, 9999)</strong><br><strong>参数位置分别为</strong>：<strong>年 月 日 时 分 秒 微秒</strong><br><strong>返回值</strong>： <strong>datetime.datetime</strong>类型</p>
-</blockquote>
-</blockquote>
+<pre><code class="python">\password postgres #给postgres用户设置密码
+1</code></pre>
+<p>创建数据库用户dbuser</p>
+<pre><code class="python">CREATE USER dbuser WITH PASSWORD &#39;dbuser&#39;; #创建数据库用户dbuser
+1</code></pre>
+<p>创建用户数据库，这里为exampledb，并指定所有者为dbuser。</p>
+<pre><code class="python">CREATE DATABASE exampledb OWNER dbuser; #创建用户数据库，这里为exampledb，并指定所有者为dbuser。
+1</code></pre>
+<p>将exampledb数据库的所有权限都赋予dbuser</p>
+<pre><code class="python">GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser; #将exampledb数据库的所有权限都赋予dbuser
+1</code></pre>
+<p>推出控制台（也可以直接按ctrl+D）</p>
+<pre><code class="python">\q #退出控制台
+1</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -735,12 +591,12 @@ transform: translate(-68%, -50%);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>时间模块</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">838</span></p>
+    <p><span class="copy-title">文章标题:</span>PostgreSQL初体验</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">249</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-24, 08:50:49</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:03:54</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/24/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/" title="时间模块">http://yoursite.com/2019/12/24/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/</a>
+    <p><span class="copy-title">发布时间:</span>2020-01-14, 19:41:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-14, 19:43:18</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/14/PostgreSQL%E5%88%9D%E4%BD%93%E9%AA%8C/" title="PostgreSQL初体验">http://yoursite.com/2020/01/14/PostgreSQL%E5%88%9D%E4%BD%93%E9%AA%8C/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
