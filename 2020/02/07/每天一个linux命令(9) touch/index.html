@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于&amp;留言板 | Besos的博客</title>
+  <title>每天一个linux命令(9) touch | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content="">
-  <meta name="description" content="关于&amp;留言板 | Besos的博客">
+  <meta name="keywords" content=" 命令 ">
+  <meta name="description" content="每天一个linux命令(9) touch | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
 <meta property="og:type" content="website">
@@ -499,24 +499,36 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-每天一个linux命令(9) touch" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于&amp;留言板</h1>
+        <h1 class="article-title">每天一个linux命令(9) touch</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="运维">运维</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color3">命令</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-01-14 14:54:13'>2020-01-14 14:27</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-07 15:28:19'>2020-02-07 15:25</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:76</span>
+        <span>字数:507</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -546,7 +558,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#个人简介"><span class="toc-text">个人简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最近"><span class="toc-text">最近</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#联系方式"><span class="toc-text">联系方式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-text">命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令功能"><span class="toc-text">命令功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令参数"><span class="toc-text">命令参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令实例"><span class="toc-text">命令实例</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -562,14 +574,61 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h3><p>堵俊杰，</p>
-<p>毕业于<a href="http://www.zzu.edu.cn/" target="_blank" rel="noopener">郑大</a>，目前从事 Python 及相关工作。</p>
-<p>喜欢研究新兴技术和未来发展方向。</p>
-<h3 id="最近"><a href="#最近" class="headerlink" title="最近"></a>最近</h3><p>在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。</p>
-<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><ul>
-<li>QQ : 784577996</li>
-<li>邮箱 :  <a href="mailto:dujunjie666@gmail.com">dujunjie666@gmail.com</a> </li>
-</ul>
+        <p>　linux的touch命令不常用，一般在使用make的时候可能会用到，用来修改文件时间戳，或者新建一个不存在的文件。</p>
+<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><pre><code class="python">$ touch [选项]... 文件...
+1</code></pre>
+<h3 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h3><p>　　touch命令参数可更改文档或目录的日期时间，包括存取时间和更改时间。</p>
+<h3 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-a</td>
+<td align="left">或–time=atime或–time=access或–time=use 只更改存取时间</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">或–no-create 不建立任何文档</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">使用指定的日期时间，而非现在的时间</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题</td>
+</tr>
+<tr>
+<td align="left">-m</td>
+<td align="left">或–time=mtime或–time=modify 　只更改变动时间</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">把指定文档或目录的日期时间，统统设成和参考文档或目录的日期时间相同</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">使用指定的日期时间，而非现在的时间</td>
+</tr>
+</tbody></table>
+<h3 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h3><p><strong><code>例一</code>：创建不存在的文件</strong></p>
+<pre><code class="python">$ touch 1.txt
+1</code></pre>
+<p><strong><code>例二</code>：更新1.txt的时间和2.txt时间戳相同</strong></p>
+<pre><code class="python">$ touch -r 1.txt 2.txt
+1</code></pre>
+<p><strong><code>例三</code>：设定文件的时间戳</strong></p>
+<pre><code class="python">$ touch -t 201211142234.50 1.txt
+1</code></pre>
+<p><strong><code>例四</code>：创建不存在的文件</strong></p>
+<pre><code class="python">$ touch 1.txt
+1</code></pre>
+<blockquote>
+<p><strong>说明：</strong> <code>-t time</code> 使用指定的时间值 time 作为指定文件相应时间戳记的新值．此处的 time规定为如下形式的十进制数: [[CC]YY]MMDDhhmm[.SS] 这里，CC为年数中的前两位，即”世纪数”；YY为年数的后两位，即某世纪中的年数．如果不给出CC的值，则touch 将把年数CCYY限定在1969–2068之内．MM为月数，DD为天将把年数CCYY限定在1969–2068之内．MM为月数，DD为天数，hh 为小时数(几点)，mm为分钟数，SS为秒数．此处秒的设定范围是0–61，这样可以处理闰秒．这些数字组成的时间是环境变量TZ指定的时区中的一个时 间．由于系统的限制，早于1970年1月1日的时间是错误的。</p>
+</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -581,6 +640,18 @@ transform: translate(-68%, -50%);
     <a  class="dashang" onclick="dashangToggle()">赏</a>
 </p>
 
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>每天一个linux命令(9) touch</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">507</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-02-07, 15:25:37</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-07, 15:28:19</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/07/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(9)%20touch/" title="每天一个linux命令(9) touch">http://yoursite.com/2020/02/07/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(9)%20touch/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
 
