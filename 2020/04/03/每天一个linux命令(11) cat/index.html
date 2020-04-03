@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>函数闭包 | Besos的博客</title>
+  <title>123 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content="">
-  <meta name="description" content="函数闭包 | Besos的博客">
+  <meta name="keywords" content=" 命令 ">
+  <meta name="description" content="123 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
 <meta property="og:type" content="website">
@@ -523,9 +523,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-函数闭包" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-每天一个linux命令(11) cat" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">函数闭包</h1>
+        <h1 class="article-title">123</h1>
     
     <div class="article-meta">
         
@@ -533,20 +533,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="python">python</a>
+                <a  data-rel="运维">运维</a>
             
         </span>
         
         
+        <span class="tag">
+            
+            <a class="color3">命令</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-01-09 10:03:09'>2019-12-30 10:39</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-03 15:44:46'>2020-04-03 15:40</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:645</span>
+        <span>字数:5</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -576,7 +582,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是闭包"><span class="toc-text">什么是闭包?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包简单示例："><span class="toc-text">闭包简单示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包思考："><span class="toc-text">闭包思考：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现闭包："><span class="toc-text">实现闭包：</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -592,56 +598,7 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h3></blockquote>
-<ul>
-<li><strong>内部函数</strong>对<strong>外部函数</strong>作用域里对象的<strong>引用</strong>(非全局变量)，则称内部函数为闭包</li>
-<li>一个闭包就是你调用了外部函数，外部函数返回内部函数,此时的内部函数就叫做闭包函数</li>
-<li>闭包在运行时可以有多个实例，不同的引用环境和相同的函数组合可以产生不同的实例</li>
-</ul>
-<blockquote>
-<h3 id="闭包简单示例："><a href="#闭包简单示例：" class="headerlink" title="闭包简单示例："></a>闭包简单示例：</h3></blockquote>
-<pre><code class="python">def wai():    a = 1    def nei():#闭包        print(a)    return neifunc = wai()func()</code></pre>
-<blockquote>
-<p>通过这个例子大家可以看到，在外部函数中，本应该在<strong>wai函数</strong>执行完死掉的变量<strong>a</strong>，由于此时有了 内部函数的引用，从而使得这个变量并不会死去，而是类似于继承一样，通过<strong>nei函数</strong>又存活了下来</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>接着让我们<strong>愉快</strong>的看下一个例子，继续理解闭包</p>
-</blockquote>
-<pre><code class="python">num  =  1 #全局变量numdef func():    a = 1    def func1():        global num #这里内部函数 使用全局变量num        num += a #并且在全局num函数的基础上 每次+a        print(num)    return func1res = func() #返回值为闭包函数res() #第一次调用闭包函数res() #那么这肯定是第二次调用闭包函数res() #我这里注释第三次，没人有歧义吧</code></pre>
-<blockquote>
-<p>三次闭包函数的执行结果，我们来看一下吧</p>
-</blockquote>
-<pre><code class="python">234</code></pre>
-<blockquote>
-<p>分析一下，这里出现的结果<br>首先三次值都是在全局变量<strong>num</strong>的基础上做累加 <strong>a</strong> 的操作<br>说明在闭包<strong>函数对象res</strong>存活期间，<strong>a</strong>变量将会一直存活</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>最后我们以将一个<strong>可变数据对象</strong>作为闭包<strong>引用</strong>的变量为例</p>
-</blockquote>
-<pre><code class="python">def func(obj): #接收可变数据对象作为参数    def func1():        obj[0] += 1 #内部将可变数据对象的第一个位置值 += 1        print(obj) #打印加完之后的可变数据对象    return func1mylist = [1,2,3,4,5]res = func(mylist)res()res()res()</code></pre>
-<blockquote>
-<p>执行的结果</p>
-</blockquote>
-<pre><code class="python">[1, 2, 3, 4, 5][2, 2, 3, 4, 5][3, 2, 3, 4, 5][4, 2, 3, 4, 5]</code></pre>
-<hr>
-<blockquote>
-<h3 id="闭包思考："><a href="#闭包思考：" class="headerlink" title="闭包思考："></a><strong>闭包思考</strong>：</h3><ul>
-<li>闭包<strong>私有化</strong>了变量，实现了类似于面向对象中实例的功能</li>
-<li>由于闭包<strong>引用</strong>了外部函数的局部变量，则<strong>外部函数</strong>中的<strong>局部变量</strong>没有及时释放，消耗内存</li>
-<li>在python中，使用闭包的另一个场景就是<strong>装饰器</strong>，也叫<strong>语法糖</strong> @</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<h3 id="实现闭包："><a href="#实现闭包：" class="headerlink" title="实现闭包："></a><strong>实现闭包</strong>：</h3><ul>
-<li>函数嵌套</li>
-<li>内部函数对外部函数作用域里对象的引用</li>
-<li>外部函数返回内部函数对象</li>
-</ul>
-</blockquote>
+        <p>pytho 天下第一</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -655,12 +612,12 @@ transform: translate(-68%, -50%);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>函数闭包</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">645</span></p>
+    <p><span class="copy-title">文章标题:</span>123</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">5</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-30, 10:39:01</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:03:09</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/30/%E5%87%BD%E6%95%B0%E9%97%AD%E5%8C%85/" title="函数闭包">http://yoursite.com/2019/12/30/%E5%87%BD%E6%95%B0%E9%97%AD%E5%8C%85/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-03, 15:40:47</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-03, 15:44:46</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/03/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(11)%20cat/" title="123">http://yoursite.com/2020/04/03/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(11)%20cat/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
