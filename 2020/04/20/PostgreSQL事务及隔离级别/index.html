@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>git命令 | Besos的博客</title>
+  <title>PostgreSQL事务及隔离级别 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" git ">
-  <meta name="description" content="git命令 | Besos的博客">
+  <meta name="keywords" content=" PostgreSQL ">
+  <meta name="description" content="PostgreSQL事务及隔离级别 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
 <meta property="og:type" content="website">
@@ -559,9 +559,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-git命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-PostgreSQL事务及隔离级别" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">git命令</h1>
+        <h1 class="article-title">PostgreSQL事务及隔离级别</h1>
     
     <div class="article-meta">
         
@@ -569,26 +569,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="git命令">git命令</a>
+                <a  data-rel="数据库">数据库</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">git</a>
+            <a class="color1">PostgreSQL</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-20 11:08:07'>2020-04-20 11:06</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-20 11:21:48'>2020-04-20 11:20</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:29</span>
+        <span>字数:941</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -618,7 +618,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务隔离及并发控制"><span class="toc-text">事务隔离及并发控制</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -634,7 +634,68 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.克隆代码: git clone 代码地址<br>2.拉取最新代码: git pull origin master     需要在项目目录</p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>PostgreSQL中提供了多种数据完整性的保证机制。如：约束、触发器、事务和锁管理等。</p>
+<p>事务主要是为了保证一组相关数据库的操作能全部执行成功，从而保证数据的完整性。锁机制主要是控制多个用户对同一数据进行操作，使用锁机制可以解决并发问题。</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是用户对一个数据库操作的一个序列，这些操作要么全做，要么全不做，是一个不可分割的单位。</p>
+<p>事务管理的常用语句如下：</p>
+<pre><code class="python">BEGIN;
+SQL语句1;
+SQL语句2;
+...
+COMMIT;
+12345</code></pre>
+<p>事务块是指包围在BEGIN和COMMIT之间的语句。在PostgreSQL9中，常用的事务块管理语句含义如下：</p>
+<blockquote>
+<p><strong>START TRANSACTION</strong>：此命令表示开始一个新的事务块.<br><strong>BEGIN</strong>：初始化一个事务块。在BEGIN命令后的语句都将在一个事务里面执行，知道遇见COMMIT或ROLLBACK。它和START TRANSACTION是一样的。<br><strong>COMMIT</strong>：提交事务。<br><strong>ROLLBACK</strong>：事务失败时执行回滚操作。<br><strong>SET TRANSACTION</strong>：设置当前事务的特性。对后面的事务没有影响。</p>
+</blockquote>
+<h3 id="事务隔离及并发控制"><a href="#事务隔离及并发控制" class="headerlink" title="事务隔离及并发控制"></a>事务隔离及并发控制</h3><p>PostgreSQL是一个支持多用户的数据库，当多个用户操作同一数据库时，并发控制要保证所有用户可以高效的访问的同时不破坏数据的完整性。</p>
+<p>数据库中数据的并发操作经常发生，而对数据的并发操作会带来下面的一些问题：</p>
+<ol>
+<li>脏读<br>一个事务读取了另一个未提交事务写入的数据。</li>
+<li>不可重复读<br>一个事务重新读取前面读取过的数据，发现该数据已经被另一个已经提交的事务修改。</li>
+<li>幻读<br>一个事务重新执行一个查询，返回符合查询条件的行的集合，发现满足查询条件的行的集合因为其它最近提交的事务而发生了改变。</li>
+</ol>
+<p>SQL标准定义了四个级别的事务隔离。</p>
+<table>
+<thead>
+<tr>
+<th align="left">隔离级别</th>
+<th align="left">脏读</th>
+<th align="left">幻读</th>
+<th align="left">不可重复性读取</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">读未提交</td>
+<td align="left">可能</td>
+<td align="left">可能</td>
+<td align="left">可能</td>
+</tr>
+<tr>
+<td align="left">读已提交</td>
+<td align="left">不可能</td>
+<td align="left">可能</td>
+<td align="left">可能</td>
+</tr>
+<tr>
+<td align="left">可重复读</td>
+<td align="left">不可能</td>
+<td align="left">可能</td>
+<td align="left">不可能</td>
+</tr>
+<tr>
+<td align="left">可串行读</td>
+<td align="left">不可能</td>
+<td align="left">不可能</td>
+<td align="left">不可能</td>
+</tr>
+</tbody></table>
+<p>在PostgreSQL中，可以请求4种隔离级别中的任意一种。但是在内部，实际上只有两种独立的隔离级别，分别对应已提交和可串行化。如果选择了读未提交的级别，实际上使用的是读已提交，在选择可重复读级别的时候，实际上用的是可串行化，所以实际的隔离级别可能比选择的更严格。这是SQL标准允许的：4种隔离级别只定义了哪种现象不能发生，但是没有定义哪种现象一定发生。</p>
+<p>PostgreSQL只提供两种隔离级别的原因是，这是把标准的隔离级别与多版本并发控制架构映射相关的唯一合理方法。</p>
+<ol>
+<li>读已提交<br>这是PostgreSQL中默认的隔离级别，当一个事务运行在这个隔离级别时，一个SELECT查询只能看到查询开始前已提交的数据，而无法看到未提交的数据或者在查询期间其他的事务已提交的数据。</li>
+<li>可串行化<br>可串行化提供最严格的事务隔离。这个级别模拟串行的事务执行，就好像事务是一个接着一个串行的执行。不过，这个级别的应用必须准备在串行化失败的时候重新启动事务。</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -648,12 +709,12 @@ transform: translate(-68%, -50%);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>git命令</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">29</span></p>
+    <p><span class="copy-title">文章标题:</span>PostgreSQL事务及隔离级别</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">941</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-20, 11:06:15</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-20, 11:08:07</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/20/git%E5%91%BD%E4%BB%A4/" title="git命令">http://yoursite.com/2020/04/20/git%E5%91%BD%E4%BB%A4/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-20, 11:20:41</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-20, 11:21:48</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/20/PostgreSQL%E4%BA%8B%E5%8A%A1%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" title="PostgreSQL事务及隔离级别">http://yoursite.com/2020/04/20/PostgreSQL%E4%BA%8B%E5%8A%A1%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
