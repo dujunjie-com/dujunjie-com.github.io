@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>每天一个linux命令（11）: nl | Besos的博客</title>
+  <title>day02-hugo操作 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" 命令 ">
-  <meta name="description" content="每天一个linux命令（11）: nl | Besos的博客">
+  <meta name="keywords" content=" hugo ">
+  <meta name="description" content="day02-hugo操作 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="插入&#x2F;* 简单插入 *&#x2F; &lt;insert id&#x3D;&quot;insertOne&quot; parameterType&#x3D;&quot;Person&quot;&gt;     insert into person (id, name, age) VALUES(#{id}, #{name}, #{age}); &lt;&#x2F;insert&gt;  &#x2F;* 插入并返回对象的主键（数据库序列） *&#x2F; &amp;l">
 <meta property="og:type" content="article">
@@ -572,9 +572,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-每天一个linux命令(11) nl" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-hugo操作" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">每天一个linux命令（11）: nl</h1>
+        <h1 class="article-title">day02-hugo操作</h1>
     
     <div class="article-meta">
         
@@ -582,26 +582,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="运维">运维</a>
+                <a  data-rel="小实训">小实训</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color3">命令</a>
+            <a class="color5">hugo</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-03 15:50:32'>2020-04-03 15:40</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-21 11:24:14'>2020-04-21 11:20</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:504</span>
+        <span>字数:32</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -631,7 +631,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-text">命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令功能"><span class="toc-text">命令功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令参数"><span class="toc-text">命令参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令实例"><span class="toc-text">命令实例</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -647,63 +647,14 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>nl命令在linux系统中用来计算文件中行号。nl 可以将输出的文件内容自动的加上行号！其默认的结果与 cat -n 有点不太一样， nl 可以将行号做比较多的显示设计，包括位数与是否自动补齐 0 等等的功能。</p>
-<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><pre><code>$ nl [选项]... [文件]...
-1</code></pre><h3 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h3><p>　　nl 命令读取 File 参数（缺省情况下标准输入），计算输入中的行号，将计算过的行号写入标准输出。 在输出中，nl 命令根据您在命令行中指定的标志来计算左边的行。 输入文本必须写在逻辑页中。每个逻辑页有头、主体和页脚节（可以有空节）。 除非使用 -p 标志，nl 命令在每个逻辑页开始的地方重新设置行号。 可以单独为头、主体和页脚节设置行计算标志（例如，头和页脚行可以被计算然而文本行不能）。</p>
-<h3 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h3><table>
-<thead>
-<tr>
-<th align="left">种类</th>
-<th align="left">参数</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">-b</td>
-<td align="left">-b a</td>
-<td align="left">表示不论是否为空行，也同样列出行号(类似 cat -n)</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">-b t</td>
-<td align="left">如果有空行，空的那一行不要列出行号(默认值)</td>
-</tr>
-<tr>
-<td align="left">-n</td>
-<td align="left">-n ln</td>
-<td align="left">行号在萤幕的最左方显示</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">-n rn</td>
-<td align="left">行号在自己栏位的最右方显示，且不加 0</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">-n rz</td>
-<td align="left">行号在自己栏位的最右方显示，且加 0</td>
-</tr>
-<tr>
-<td align="left">-w</td>
-<td align="left">-w</td>
-<td align="left">行号栏位的占用的位数</td>
-</tr>
-<tr>
-<td align="left">-p</td>
-<td align="left">-p</td>
-<td align="left">在逻辑定界符处不重新开始计算</td>
-</tr>
-</tbody></table>
-<h3 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h3><p><strong><code>例一</code>：用 nl 列出 log2012.log 的内容</strong></p>
-<pre><code># 文件中的空白行，nl 不会加上行号
-$ nl log2012.log
-12</code></pre><p><strong><code>例二</code>：用 nl 列出 log2012.log 的内容，空本行也加上行号</strong></p>
-<pre><code>$ nl -b a log2012.log
-1</code></pre><p><strong><code>例三</code>：让行号前面自动补上0,统一输出格式</strong></p>
-<pre><code>$ nl -b a -n rz log2014.log
-1</code></pre><blockquote>
-<p>nl -b a -n rz 命令行号默认为六位，要调整位数可以加上参数 -w 3 调整为3位。</p>
-</blockquote>
+        <p>hugo new day01.md  创建新文件</p>
+<p>cd ..</p>
+<p>hugo  打包</p>
+<p>cd public</p>
+<p>git add -A</p>
+<p>git commit -m ‘’</p>
+<p>git push -u origin master</p>
+<p>hugo server   启动服务</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -717,12 +668,12 @@ $ nl log2012.log
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>每天一个linux命令（11）: nl</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">504</span></p>
+    <p><span class="copy-title">文章标题:</span>day02-hugo操作</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">32</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-03, 15:40:47</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-03, 15:50:32</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/03/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(11)%20nl/" title="每天一个linux命令（11）: nl">http://yoursite.com/2020/04/03/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(11)%20nl/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-21, 11:20:42</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-21, 11:24:14</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/21/hugo%E6%93%8D%E4%BD%9C/" title="day02-hugo操作">http://yoursite.com/2020/04/21/hugo%E6%93%8D%E4%BD%9C/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
