@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>os模块 | Besos的博客</title>
+  <title>day03-vue复习 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" 文件 ">
-  <meta name="description" content="os模块 | Besos的博客">
+  <meta name="keywords" content=" vue ">
+  <meta name="description" content="day03-vue复习 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="day03-vue复习">
@@ -582,9 +582,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-os模块" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-vue复习" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">os模块</h1>
+        <h1 class="article-title">day03-vue复习</h1>
     
     <div class="article-meta">
         
@@ -592,26 +592,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="python">python</a>
+                <a  data-rel="小实训">小实训</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color3">文件</a>
+            <a class="color4">vue</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-01-09 10:06:09'>2019-12-23 16:05</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-22 12:34:25'>2020-04-22 12:15</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:0</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -641,7 +641,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OS模块"><span class="toc-text">OS模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#os和sys："><span class="toc-text">os和sys：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#os-path和sys-path："><span class="toc-text">os.path和sys.path：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#os模块常用函数"><span class="toc-text">os模块常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Os-path模块常用函数"><span class="toc-text">Os.path模块常用函数</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -657,174 +657,7 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h3><blockquote>
-<p>使用os模块时，不需要考虑平台差异，解释器会帮大家选择正确的系统支持<br>可以对进程和进程运行环境进行管理<br>该模块还可以处理大部分文件系统操作，比如<strong>删除</strong>，<strong>重命名</strong>文件，<strong>遍历目录树</strong>，以及<strong>管理文件</strong>访问权限。</p>
-</blockquote>
-<hr>
-<ul>
-<li><h3 id="os和sys："><a href="#os和sys：" class="headerlink" title="os和sys："></a><strong>os</strong>和<strong>sys</strong>：</h3><blockquote>
-<p>os负责程序与<strong>操作系统</strong>的交互<br>sys负责程序与<strong>解释器</strong>的交互</p>
-</blockquote>
-</li>
-<li><h3 id="os-path和sys-path："><a href="#os-path和sys-path：" class="headerlink" title="os.path和sys.path："></a><strong>os.path</strong>和<strong>sys.path</strong>：</h3><blockquote>
-<p>sys.path是<strong>PATH</strong>环境变量<br>os.path是os模块下的子模块，提供了一些关于路径处理的函数</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h3 id="os模块常用函数"><a href="#os模块常用函数" class="headerlink" title="os模块常用函数"></a>os模块常用函数</h3><ul>
-<li>os.name：输出字符串指示正在使用的平台</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.name&#39;nt&#39;</code></pre>
-<hr>
-<ul>
-<li>os.getcwd()：得到当前<strong>工作目录</strong>(就是你的进程所工作的目录)，即当前脚本工作路径</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.getcwd()&#39;C:\\Users\\Administrator&#39;</code></pre>
-<blockquote>
-<ul>
-<li><strong>运行目录</strong>：执行程序时的路径</li>
-<li><strong>工作目录</strong>：程序运行时，程序中我们要操作其他文件时使用的的一系列相对路径(相对路径需要参照)，工作目录可在程序运行时更改</li>
-</ul>
-</blockquote>
-<hr>
-<ul>
-<li>os.listdir()：返回指定目录下的所有文件和目录名的一个列表，但是并没有列出来什么是目录，什么是文件。</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.listdir()&gt;&gt;&gt; os.listdir()[ &#39;桌面&#39;, &#39;下载&#39;, &#39;模板&#39;, &#39;公共&#39;, &#39;文档&#39;, &#39;音乐&#39;, &#39;图片&#39;, &#39;视频&#39;]#结果为列表，但是并没有列出谁是目录，谁是文件</code></pre>
-<hr>
-<ul>
-<li>os.remove(‘file_name’)：<strong>删除</strong>指定<strong>文件</strong>，文件不存在则报错</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.remove(&#39;1.txt&#39;)Traceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;FileNotFoundError: [Errno 2] No such file or directory: &#39;1.txt&#39;</code></pre>
-<hr>
-<ul>
-<li>os.rmdir(‘dir_name’)：<strong>删除</strong>指定<strong>目录</strong></li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.remove(&#39;桌面&#39;)#删除桌面目录</code></pre>
-<hr>
-<ul>
-<li>os.mkdir(‘dir_name’)：<strong>创建</strong>目录</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.mkdir(&#39;桌面&#39;)#创建目录名为桌面</code></pre>
-<hr>
-<ul>
-<li>os.makedirs(‘a/b/c’)：<strong>递归创建</strong>目录</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.makedirs(&#39;a/b/c&#39;)</code></pre>
-<hr>
-<ul>
-<li>os.system(‘ls’)：执行<strong>shell</strong>命令</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.system(&#39;su rm -rf /*&#39;)#四大皆空</code></pre>
-<hr>
-<ul>
-<li>os.chdir(‘file_path’)：改变<strong>工作目录</strong></li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.getcwd()&#39;C:\\Users\\Administrator&#39;&gt;&gt;&gt; os.chdir(&#39;C:\\Users&#39;)&gt;&gt;&gt; os.getcwd()&#39;C:\\Users&#39;</code></pre>
-<hr>
-<ul>
-<li>os.chmod(‘file_name’)：改变文件或目录的<strong>权限</strong></li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.chmod(&#39;1.txt&#39;,445)&gt;&gt;&gt; os.system(&#39;ls -l 1.txt&#39;)-rw-rwxr-x 1 root root 0 1月  19 11:42 1.txt0</code></pre>
-<hr>
-<h3 id="Os-path模块常用函数"><a href="#Os-path模块常用函数" class="headerlink" title="Os.path模块常用函数"></a>Os.path模块常用函数</h3><ul>
-<li><p>os.path.abspath(‘file_name’)</p>
-<p>：</p>
-<ul>
-<li>返回文件或目录的绝对路径</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.abspath(&#39;1.txt&#39;)&#39;/root/1.txt&#39;</code></pre>
-<hr>
-<ul>
-<li><p>os.path.split(‘file_path’)</p>
-<p>：</p>
-<ul>
-<li>将路径分隔成目录和文件名，并以一个元组返回</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.split(&#39;/root/1.txt&#39;)(&#39;/root&#39;, &#39;1.txt&#39;)</code></pre>
-<hr>
-<ul>
-<li><p>os.path.basename(‘path’)</p>
-<p>：</p>
-<ul>
-<li>返回路径最后的文件名</li>
-<li>如果后面还有\ / 那么返回一个空字符串</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.basename(&#39;/root/1.txt&#39;)&#39;1.txt&#39;</code></pre>
-<hr>
-<ul>
-<li><p>os.path.exists(‘file_path’)</p>
-<p>：</p>
-<ul>
-<li>如果路径存在，则返回True，反之返回False</li>
-<li>与上面的函数不同，他就是检查这个路径是否存在</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.exists(&#39;/root/2.txt&#39;)False</code></pre>
-<hr>
-<ul>
-<li><p>os.path.join(‘file_path’，’file_name’)</p>
-<p>：</p>
-<ul>
-<li>路径拼接</li>
-<li>不会检查是否存在该文件或目录</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.join(&#39;/root&#39;,&#39;abc&#39;)&#39;/root/abc&#39;&gt;&gt;&gt; os.path.join(&#39;root&#39;,&#39;abc&#39;)&#39;root/abc&#39;</code></pre>
-<hr>
-<ul>
-<li><p>os.path.isdir(‘name’)</p>
-<p>：</p>
-<ul>
-<li>判断是否为目录，返回值为bool</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.isdir(&#39;/root&#39;)True&gt;&gt;&gt; os.path.isdir(&#39;1.txt&#39;)False</code></pre>
-<hr>
-<ul>
-<li><p>os.path.isfile(‘name’)</p>
-<p>：</p>
-<ul>
-<li>判断是否为文件，返回值为bool</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.isfile(&#39;/root&#39;)False&gt;&gt;&gt; os.path.isfile(&#39;1.txt&#39;)True</code></pre>
-<hr>
-<ul>
-<li><p>os.path.islink(‘name’)</p>
-<p>：</p>
-<ul>
-<li>判断是否是链接，返回值为bool</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.islink(&#39;1.txt&#39;)False&gt;&gt;&gt; os.path.islink(&#39;/usr/bin/python3&#39;)True#ln -s 是我们在linux下创建连接的命令，类似win下的快捷方式</code></pre>
-<hr>
-<ul>
-<li><p>os.path.getsize(‘path’)</p>
-<p>：</p>
-<ul>
-<li>返回文件大小</li>
-<li>如果文件不存在，抛出异常</li>
-</ul>
-</li>
-</ul>
-<pre><code class="python">&gt;&gt;&gt; os.path.getsize(&#39;1.txt&#39;)0&gt;&gt;&gt; os.path.getsize(&#39;2.txt&#39;)Traceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;  File &quot;/usr/local/python3/lib/python3.6/genericpath.py&quot;, line 50, in getsize    return os.stat(filename).st_sizeFileNotFoundError: [Errno 2] No such file or directory: &#39;2.txt&#39;</code></pre>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
     </div>
@@ -837,12 +670,12 @@ transform: translate(-68%, -50%);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>os模块</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">文章标题:</span>day03-vue复习</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">0</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-23, 16:05:53</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:06:09</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/23/os%E6%A8%A1%E5%9D%97/" title="os模块">http://yoursite.com/2019/12/23/os%E6%A8%A1%E5%9D%97/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-22, 12:15:42</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-22, 12:34:25</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/22/vue%E5%A4%8D%E4%B9%A0/" title="day03-vue复习">http://yoursite.com/2020/04/22/vue%E5%A4%8D%E4%B9%A0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
