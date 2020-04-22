@@ -7,15 +7,16 @@
   <meta name="keywords" content=" vue ">
   <meta name="description" content="day03-vue复习 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="article">
-<meta property="og:title" content="day03-vue复习">
-<meta property="og:url" content="http://yoursite.com/2020/04/22/vue%E5%A4%8D%E4%B9%A0/index.html">
+<meta name="description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于&amp;留言板">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Besos的博客">
+<meta property="og:description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-22T04:15:42.000Z">
-<meta property="article:modified_time" content="2020-04-22T04:34:25.110Z">
+<meta property="article:published_time" content="2020-01-14T06:27:45.000Z">
+<meta property="article:modified_time" content="2020-01-14T06:54:13.445Z">
 <meta property="article:author" content="Besos的博客">
-<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
 
 
@@ -267,7 +268,7 @@ transform: translate(-68%, -50%);
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="21.4k">
+<input type="hidden" id="yelog_site_word_count" value="22.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -606,12 +607,12 @@ transform: translate(-68%, -50%);
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-22 12:34:25'>2020-04-22 12:15</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-22 13:29:58'>2020-04-22 12:15</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:1.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -641,7 +642,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、使用VUE"><span class="toc-text">一、使用VUE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、指令"><span class="toc-text">二、指令</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -657,7 +658,167 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="一、使用VUE"><a href="#一、使用VUE" class="headerlink" title="一、使用VUE"></a>一、使用VUE</h3><p>1、引入vue.js文件</p>
+<pre><code class="python">//下载后导入
+&lt;script src=vue.js&gt;&lt;/script&gt;</code></pre>
+<p>2、通过下面的代码展示用，创建一个Vue的实例，然后通过应用的id嵌入根元素，将数据放入一个对象data中，并且将表达式传入div中（一定注意必须是双大括号）</p>
+<pre><code class="python">&lt;div id=&quot;app&quot;&gt;
+  {{ msg}}
+&lt;/div&gt;
+
+//建立vue对象，固定格式
+new Vue({
+  el: &#39;#app&#39;,   //通过id嵌入元素，el是元素ELEMENT的缩写
+  data: { 
+    msg: &#39;Holle Word!&#39;
+  }
+})</code></pre>
+<h3 id="二、指令"><a href="#二、指令" class="headerlink" title="二、指令"></a>二、指令</h3><p>指令：带有前缀 v-，以表示它们是 Vue 提供的特殊特性，通过属性来操作元素。<br>1、v-model</p>
+<pre><code class="python">v-model:实现了数据和视图的双向绑定
+ 分成了3步：
+ 1）把元素的值和数据相互绑定
+ 2）当输入内容时，数据同步发生变化，视图  ---数据的驱动
+ 3）当改变数据时，输入内容也会发生变化，数据-》视图的驱动
+例子：利用vue中的v-model把input标签与data数据中msg属性进行双向绑定，msg可以有默认值也可以默认为空！
+&lt;div id=&quot;app&quot;&gt;
+    &lt;input type=&quot;text&quot; v-model=&quot;msg&quot;&gt;
+    &lt;h1&gt;{{msg}}&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    new Vue({
+        el:&quot;#app&quot;,
+        data:{
+            msg:&quot;Holle Word !&quot;
+        }
+    })</code></pre>
+<p>2、v-bind</p>
+<pre><code class="python">&lt;div id=&quot;app&quot;&gt;
+    &lt;a v-on:href=&quot;url&quot;&gt;我&lt;/a&gt;
+&lt;/div&gt;
+&lt;script&gt;
+        new Vue({
+            el: &quot;#app&quot;, //表示在当前这个元素内开始使用VUE
+            data:{
+                url: &quot;http://www.qq.com&quot;
+            },
+        })
+    &lt;/script&gt;</code></pre>
+<p> 3、v-text </p>
+<pre><code class="python">// v-text 在元素中插入文本，比较单一
+&lt;div id=&quot;app&quot;&gt;  
+    &lt;h1 v-text=&quot;msg&quot;&gt;{{msg}}&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    new Vue({
+        el:&quot;#app&quot;,
+        data:{
+            msg:&quot;Holle Word !&quot;
+        }
+    })</code></pre>
+<p> 4、v-html </p>
+<pre><code class="python">// v-html:在元素不中不仅可以插入文本，还可以插入标签，多样化
+&lt;div id=&quot;app&quot;&gt;
+&lt;h1 v-html=&quot;hd&quot;&gt;&lt;/h1&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    new Vue({
+        el:&quot;#app&quot;,
+        data:{
+            hd: &quot;&lt;input type=&#39;button&#39; value=&#39;提交&#39;&gt;&quot;,
+            str: &quot;我要发财!&quot;
+        }
+    }) </code></pre>
+<p>5、v-if – v-show – v-on<br>// v-if: 根据表达式的真假值来动态插入和移除元素，下面的例子演示了我们不仅可以把数据绑定到 DOM 文本或特性，还可以绑定到 DOM 结构。此外，Vue 也提供一个强大的过渡效果系统，可以在 Vue 插入/更新/移除元素时自动应用过渡效果。<br>// v-show:根据表达式的真假值来隐藏和显示元素</p>
+<pre><code class="python">&lt;div id=&quot;app&quot;&gt;
+       &lt;p v-if=&quot;pick&quot;&gt;我是刘德华&lt;/p&gt;
+       &lt;p v-else&gt;我是张学友&lt;/p&gt;
+
+       &lt;p v-show=&quot;temp&quot;&gt;我是赵本山&lt;/p&gt;
+       &lt;p v-show=&quot;ok&quot;&gt;你喜欢我吗？&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;script&gt;
+    var vm = new Vue({
+            el: &quot;#app&quot;, //表示在当前这个元素内开始使用VUE
+            data:{
+                pick: false,
+                temp: true,
+                ok: true
+            }
+        })
+&lt;script&gt; 
+
+
+&lt;div id=&quot;app&quot;&gt;
+          &lt;input type=&quot;button&quot; value=&quot;点我吧!&quot; v-on:click=&quot;show()&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el: &quot;#app&quot;, //表示在当前这个元素内开始使用VUE
+            data:{
+                arr: [11,22,3344,55],
+            },
+            methods: {
+                show: function () {
+                    this.arr.pop();
+                }
+            }
+        })
+    &lt;/script&gt;</code></pre>
+<p>6、v-for</p>
+<p>根据变量的值来循环渲染元素</p>
+<pre><code class="python">&lt;div id=&quot;app&quot;&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in todos&quot;&gt;
+      {{ item.text }}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+var app = new Vue({
+  el: &#39;#app&#39;,
+  data: {
+    todos: [
+      { text: &#39;学习 JavaScript&#39; },
+      { text: &#39;学习 Vue&#39; },
+      { text: &#39;整个牛项目&#39; }
+    ]
+  }
+})
+// 循环列表有两个参数，一个为元素中的数据，另一个为索引值
+ &lt;div id=&quot;app&quot;&gt;
+        &lt;ul&gt;
+            &lt;li v-for=&quot;(item,index2) in arr&quot;&gt;
+                {{item}}: {{index2}}
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el: &quot;#app&quot;, //表示在当前这个元素内开始使用VUE
+            data:{
+                arr: [11,22,33,44,55],
+            }
+        })
+    &lt;/script&gt;
+    // 循环字典时，有三个参数，元素中的value值，key，索引值
+&lt;div id=&quot;app&quot;&gt;
+          &lt;ul&gt;
+            &lt;li v-for=&quot;(item,key,index) in obj&quot;&gt;
+                {{item}}: {{key}}:{{index}}
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el: &quot;#app&quot;, //表示在当前这个元素内开始使用VUE
+            data:{
+                obj: {a:&quot;张三&quot;,b:&quot;李四&quot;,c:&quot;王大拿&quot;,d:&quot;谢大脚&quot;},
+            },
+        })
+    &lt;/script&gt;</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
     </div>
@@ -671,10 +832,10 @@ transform: translate(-68%, -50%);
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>day03-vue复习</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">0</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-22, 12:15:42</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-22, 12:34:25</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-22, 13:29:58</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/22/vue%E5%A4%8D%E4%B9%A0/" title="day03-vue复习">http://yoursite.com/2020/04/22/vue%E5%A4%8D%E4%B9%A0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
