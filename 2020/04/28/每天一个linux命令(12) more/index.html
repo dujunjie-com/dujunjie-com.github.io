@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>day01-git命令 | Besos的博客</title>
+  <title>每天一个linux命令(12) more | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" git ">
-  <meta name="description" content="day01-git命令 | Besos的博客">
+  <meta name="keywords" content=" 命令 ">
+  <meta name="description" content="每天一个linux命令(12) more | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能 。more命令从前向后读取文件，因此在启动时就加载整个文件。 命令格式$ more [-dlfpcsu ] [-num ] [+&#x2F; pattern">
 <meta property="og:type" content="article">
@@ -636,9 +636,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-git命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-每天一个linux命令(12) more" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">day01-git命令</h1>
+        <h1 class="article-title">每天一个linux命令(12) more</h1>
     
     <div class="article-meta">
         
@@ -646,26 +646,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="小实训">小实训</a>
+                <a  data-rel="运维">运维</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">git</a>
+            <a class="color3">命令</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-28 08:45:38'>2020-04-20 11:06</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-28 10:46:12'>2020-04-28 10:46</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:296</span>
+        <span>字数:575</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -695,7 +695,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-text">git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-–version"><span class="toc-text">git –version</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-clone"><span class="toc-text">git clone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-commit"><span class="toc-text">git commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-remote-add-origin"><span class="toc-text">git remote add origin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-push-u-origin-master"><span class="toc-text">git push -u origin master</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-pull-origin-master"><span class="toc-text">git pull origin master</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用别人的django项目："><span class="toc-text">使用别人的django项目：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用别人的vue项目："><span class="toc-text">使用别人的vue项目：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git提交需要一个-gitignore-提交忽略文件"><span class="toc-text">git提交需要一个 .gitignore 提交忽略文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置环境变量"><span class="toc-text">配置环境变量</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-text">命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令功能"><span class="toc-text">命令功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令参数"><span class="toc-text">命令参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用操作"><span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令实例"><span class="toc-text">命令实例</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -711,46 +711,113 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h4 id="git-–version"><a href="#git-–version" class="headerlink" title="git –version"></a>git –version</h4><blockquote>
-<p>查看git版本号</p>
-</blockquote>
-<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><blockquote>
-<p>git clone 代码库的url</p>
+        <p>　　more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能 。more命令从前向后读取文件，因此在启动时就加载整个文件。</p>
+<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><pre><code class="python">$ more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file ... ]
+1</code></pre>
+<h3 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h3><p>　　more命令和cat的功能一样都是查看文件里的内容，但有所不同的是more可以按页来查看文件的内容，还支持直接跳转行等功能。</p>
+<h3 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+n</td>
+<td align="left">从笫n行开始显示</td>
+</tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">定义屏幕大小为n行</td>
+</tr>
+<tr>
+<td align="left">+/pattern</td>
+<td align="left">每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">从顶部清屏，然后显示</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">忽略Ctrl+l（换页）字符</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">通过清除窗口而不是滚屏来对文件进行换页，与-c选项相似</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">把连续的多个空行显示为一行</td>
+</tr>
+<tr>
+<td align="left">-u</td>
+<td align="left">把文件内容中的下画线去掉</td>
+</tr>
+</tbody></table>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Enter</td>
+<td align="left">向下n行，需要定义。默认为1行</td>
+</tr>
+<tr>
+<td align="left">Ctrl+F</td>
+<td align="left">向下滚动一屏</td>
+</tr>
+<tr>
+<td align="left">空格键</td>
+<td align="left">向下滚动一屏</td>
+</tr>
+<tr>
+<td align="left">Ctrl+B</td>
+<td align="left">返回上一屏</td>
+</tr>
+<tr>
+<td align="left">=</td>
+<td align="left">输出当前行的行号</td>
+</tr>
+<tr>
+<td align="left">：f</td>
+<td align="left">输出文件名和当前行的行号</td>
+</tr>
+<tr>
+<td align="left">V</td>
+<td align="left">调用vi编辑器</td>
+</tr>
+<tr>
+<td align="left">!命令</td>
+<td align="left">调用Shell，并执行命令</td>
+</tr>
+<tr>
+<td align="left">q</td>
+<td align="left">退出more</td>
+</tr>
+</tbody></table>
+<h3 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h3><p><strong><code>例一</code>：显示文件中从第3行起的内容</strong></p>
+<pre><code class="python">$ more +3 log2012.log
+1</code></pre>
+<p><strong><code>例二</code>：从文件中查找第一个出现”day3”字符串的行，并从该处前两行开始显示输出</strong></p>
+<pre><code class="python">$ more +/day3 log2012.log
+1</code></pre>
+<p><strong><code>例三</code>：设定每屏显示行数</strong></p>
+<pre><code class="python">$ more -5 log2012.log
+1</code></pre>
+<p><strong><code>例四</code>：列一个目录下的文件，由于内容太多，我们应该学会用more来分页显示。这得和管道 | 结合起来</strong></p>
+<pre><code class="python">$ ls -l  | more -5
+1</code></pre>
 <blockquote>
-<p>将线上库克隆到本地</p>
+<p><strong>说明：</strong>每页显示5个文件信息，按 Ctrl+F 或者 空格键 将会显示下5条文件信息。</p>
 </blockquote>
-</blockquote>
-<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><blockquote>
-<p>将工作区的修改提交到暂存区</p>
-</blockquote>
-<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><blockquote>
-<p>将暂存区的文件或目录提交到版本库区</p>
-</blockquote>
-<h4 id="git-remote-add-origin"><a href="#git-remote-add-origin" class="headerlink" title="git remote add origin"></a>git remote add origin</h4><blockquote>
-<p>将本地仓库与新建仓库相联系 (origin 远程)</p>
-</blockquote>
-<h4 id="git-push-u-origin-master"><a href="#git-push-u-origin-master" class="headerlink" title="git push -u origin master"></a>git push -u origin master</h4><blockquote>
-<p>将提交到本地库中的内容推送到远程库中</p>
-</blockquote>
-<h4 id="git-pull-origin-master"><a href="#git-pull-origin-master" class="headerlink" title="git pull origin master"></a>git pull origin master</h4><blockquote>
-<p>拉取别人修改的代码进行同步</p>
-</blockquote>
-<h4 id="使用别人的django项目："><a href="#使用别人的django项目：" class="headerlink" title="使用别人的django项目："></a>使用别人的django项目：</h4><pre><code class="python">$ git clone https://gitee.com/QiHanXiBei/mydjango</code></pre>
-<h4 id="使用别人的vue项目："><a href="#使用别人的vue项目：" class="headerlink" title="使用别人的vue项目："></a>使用别人的vue项目：</h4><pre><code class="python">$ git clone https://gitee.com/QiHanXiBei/myvue</code></pre>
-<h4 id="git提交需要一个-gitignore-提交忽略文件"><a href="#git提交需要一个-gitignore-提交忽略文件" class="headerlink" title="git提交需要一个 .gitignore 提交忽略文件"></a>git提交需要一个 .gitignore 提交忽略文件</h4><blockquote>
-<p>如果出现任何关于node依赖的问题导致服务无法启动，执行npm install无法解决的，则安装 rimraf ,然后进入项目目录下，执行 rimraf node_modules 删除后，重新执行 npm install 安装依赖</p>
-</blockquote>
-<pre><code class="python">删除node_modules
-npm install rimraf -g
-rimraf node_modules</code></pre>
-<hr>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><pre><code class="python">1. 找到计算机
-2. 右击，属性
-3. 点击高级系统设置
-4. 点击环境变量按钮
-5. 点击新增按钮
-6. 配置Path:找到Path,点击编辑
-7. 点击确认，配置完毕</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -764,12 +831,12 @@ rimraf node_modules</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>day01-git命令</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">296</span></p>
+    <p><span class="copy-title">文章标题:</span>每天一个linux命令(12) more</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">575</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-20, 11:06:15</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-28, 08:45:38</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/20/git%E5%91%BD%E4%BB%A4/" title="day01-git命令">http://yoursite.com/2020/04/20/git%E5%91%BD%E4%BB%A4/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-28, 10:46:58</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-28, 10:46:12</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/28/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(12)%20more/" title="每天一个linux命令(12) more">http://yoursite.com/2020/04/28/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4(12)%20more/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
