@@ -667,7 +667,7 @@ transform: translate(-68%, -50%);
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-29 09:09:06'>2020-04-29 08:45</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-29 09:25:00'>2020-04-29 08:45</time>
         
     </div>
     <div class="article-meta">
@@ -720,13 +720,13 @@ transform: translate(-68%, -50%);
       
         <p>  首先注册微博开放平台：<a href="https://open.weibo.com/" target="_blank" rel="noopener">https://open.weibo.com/</a></p>
 <p>  选择微链接-》网站接入=&gt;立即接入 新建一个应用</p>
-<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\1.png" style="zoom:50%;">
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\1.jpg" style="zoom:50%;">
 
 <p>应用创建成功后，会立即跳转审核页面，需要填写一些资质，用来进行审核，其实这些审核字段都不用搭理，                  应用压根就不需要通过审核 </p>
-<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\2.png" style="zoom: 50%;">
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\2.jpg" style="zoom: 50%;">
 
 <p> 只需要拿到appkey和appsecret即可，然后立即点击高级信息，填写回调网址 </p>
-<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\3.png" style="zoom: 33%;">
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\3.jpg" style="zoom: 33%;">
 
 <p>那么新浪微博的登录逻辑很简单： 拼接url =&gt; 回调获取code =&gt; 利用code换取uid和access_token =&gt; 使用access_token获取用户信息</p>
 <p>  首先第一步，拼接url，这里我们使用Tornado写控制器</p>
@@ -769,16 +769,14 @@ class SinaBackHandler(BaseHandler):
 
         self.write(re_dict)</code></pre>
 <p>接下来的情况就有点操蛋了，因为新浪规定应用如果不通过审核，那么新浪有些接口无权限请求的，可以说你手里只有access_token和uid，却换不到别的东西，怎么办呢，没有人会闲的没事为了测试接口就去弄个营业执照，但是有一个曲线救国的方法，就是在测试信息页面来添加测试账号，添加好测试账号之后，就可以请求相应的接口 </p>
-<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\4.png" style="zoom:50%;">
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\4.jpg" style="zoom:50%;">
 
 <p>最后，利用手里的access_token和uid来获取当前用户的用户名 </p>
 <pre><code class="python">result = requests.get(&#39;https://api.weibo.com/2/users/show.json&#39;,params={&#39;access_token&#39;:res[&#39;access_token&#39;],&#39;uid&#39;:res[&#39;uid&#39;]})
 
 result = json.loads(result.text)
 print(result[&#39;name&#39;])</code></pre>
-<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\51.png" style="zoom: 67%;">
-
-
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\5.jpg" style="zoom: 67%;">
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
     </div>
@@ -795,7 +793,7 @@ print(result[&#39;name&#39;])</code></pre>
     <p><span class="copy-title">文章字数:</span><span class="post-count">569</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-29, 08:45:21</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-29, 09:09:06</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-29, 09:25:00</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/29/%E5%BE%AE%E5%8D%9A%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/" title="day08-微博第三方登录">http://yoursite.com/2020/04/29/%E5%BE%AE%E5%8D%9A%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
