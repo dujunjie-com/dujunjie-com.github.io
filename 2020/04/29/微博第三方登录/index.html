@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>装饰器函数 | Besos的博客</title>
+  <title>day08-微博第三方登录 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content="">
-  <meta name="description" content="装饰器函数 | Besos的博客">
+  <meta name="keywords" content=" python ">
+  <meta name="description" content="day08-微博第三方登录 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
 <meta property="og:type" content="website">
@@ -643,9 +643,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-装饰器函数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-微博第三方登录" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">装饰器函数</h1>
+        <h1 class="article-title">day08-微博第三方登录</h1>
     
     <div class="article-meta">
         
@@ -653,20 +653,26 @@ transform: translate(-68%, -50%);
         
         <span class="book">
             
-                <a  data-rel="python">python</a>
+                <a  data-rel="小实训">小实训</a>
             
         </span>
         
         
+        <span class="tag">
+            
+            <a class="color2">python</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-01-09 10:05:43'>2019-12-27 15:48</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-29 09:09:06'>2020-04-29 08:45</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:569</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -696,7 +702,7 @@ transform: translate(-68%, -50%);
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰器函数"><span class="toc-text">装饰器函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法："><span class="toc-text">语法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行后的结果："><span class="toc-text">执行后的结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#被装饰的函数带有参数"><span class="toc-text">被装饰的函数带有参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰器函数带有参数"><span class="toc-text">装饰器函数带有参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -712,120 +718,66 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="装饰器函数"><a href="#装饰器函数" class="headerlink" title="装饰器函数"></a>装饰器函数</h3><blockquote>
-<p>装饰器：在函数运行时增加功能且不影响这个函数原有内容</p>
-</blockquote>
-<h3 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h3><pre><code class="python">@func1def func2():    pass</code></pre>
-<blockquote>
-<p><strong>@</strong>符号为装饰器函数语法，也常叫做语法糖</p>
-</blockquote>
-<blockquote>
-<p>先来看一个简单的装饰器函数实现：</p>
-</blockquote>
-<pre><code class="python">def wai(func):#装饰器函数，参数部分接收一个函数对象    
-    def nei():#闭包函数        
-            print(&#39;this is nei&#39;) #要添加的功能                            
-            return func() #返回接收到的函数func    
-    return nei #返回闭包函数
+        <p>  首先注册微博开放平台：<a href="https://open.weibo.com/" target="_blank" rel="noopener">https://open.weibo.com/</a></p>
+<p>  选择微链接-》网站接入=&gt;立即接入 新建一个应用</p>
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\1.png" style="zoom:50%;">
 
-#在func2()执行的时候，会将func()也执行
-@wai
-def foo():    
-        print(&#39;this is foo&#39;)
-foo()</code></pre>
-<hr>
-<blockquote>
-<h3 id="执行后的结果："><a href="#执行后的结果：" class="headerlink" title="执行后的结果："></a>执行后的结果：</h3></blockquote>
-<pre><code class="python">this is nei
-this is foo</code></pre>
-<hr>
-<blockquote>
-<p>此时的foo函数在原有的基础上，额外多了装饰器函数中的定义的功能<br>被装饰函数foo在调用时，其实本质上是在进行 wai(foo)()</p>
-</blockquote>
-<hr>
-<blockquote>
-<ul>
-<li><p>wai(foo)()</p>
-<p>过程解析：</p>
-<ul>
-<li>装饰器函数wai接收<strong>被装饰函数</strong>foo作为<strong>参数</strong></li>
-<li>返回return nei，<strong>闭包函数</strong>nei被返回</li>
-<li>nei()函数调用</li>
-<li>由于nei函数的返回值为return func()，所以在<strong>内函数</strong>调用结束时，<strong>被装饰函数</strong>也会被调用</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>被装饰函数</strong>在调用时，被<strong>调用</strong>的函数有<strong>三个</strong>： wai() nei() 以及<strong>被装饰函数</strong>func()</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>接下来，让我们<strong>充满动力</strong>的继续看这样一个例子</p>
-</blockquote>
-<h3 id="被装饰的函数带有参数"><a href="#被装饰的函数带有参数" class="headerlink" title="被装饰的函数带有参数"></a>被装饰的函数带有参数</h3><blockquote>
-<p>我们考虑到，之前的普通装饰器并不能解决；<strong>被装饰函数</strong>带有参数的问题，如果有这样一个函数</p>
-</blockquote>
-<pre><code class="python">def foo(a,b):    
-        print(a+b)</code></pre>
-<blockquote>
-<p>这个函数在定义时，明确两个参数，并且做相加打印的操作<br>我们有一个胆大的想法，在这个两值相加函数运行后的结果，分别给 <strong>a</strong>和 <strong>b</strong>两值多100，但是不修改这个原有 <strong>foo</strong>函数</p>
-</blockquote>
-<pre><code class="python">def wai(func):#装饰器函数    
-    def nei(a,b): #内部闭包函数，在这里的a,b其实也就是我们被装饰函数传入的参数a,b        
-        a = a + 100 #在这里，为两个参数分别+100        
-        b = b + 100        
-        #我们还可以在装饰器函数中修改传递函数中变量的值                    
-        return func(a,b)    
-      return nei
-@wai
-def foo(a,b):    
-    print(a+b)
-foo(3,5)</code></pre>
-<blockquote>
-<p>按照惯有思维，3+5的结果应该是8，但是由于该函数被装饰，我们来看下结果吧：</p>
-</blockquote>
-<pre><code class="python">30</code></pre>
-<blockquote>
-<p>执行后的结果，并不是本身的<strong>3+5</strong><br>装饰器函数内部的<strong>闭包</strong>函数<strong>参数</strong>部分接收到了<strong>被装饰函数</strong>传入的<strong>参数</strong>，并且在其内部进行了值的修改<br>最后在<strong>闭包函数</strong>的<strong>返回值</strong>处，将修改后的函数传入到<strong>return func(a,b)</strong>，此时被装饰函数调用，但是传入的参数已经不再是之前的<strong>3</strong>和<strong>5</strong>了</p>
-</blockquote>
-<h3 id="装饰器函数带有参数"><a href="#装饰器函数带有参数" class="headerlink" title="装饰器函数带有参数"></a>装饰器函数带有参数</h3><blockquote>
-<p>最后，让我们看一下装饰器函数的终极套路<br>如果我们装饰器函数需要参数怎么办？<br>你会发现，此时<strong>wai</strong>函数和<strong>nei</strong>函数的参数部分都有了自己的意义，那么这个装饰器函数的参数该怎么接收？</p>
-</blockquote>
-<pre><code class="python">def arg_func(choice=&#39;Man&#39;): #我们额外包装一层函数用来接收装饰器函数的参数    
-    def wai(func): #装饰器函数        
-        def nei(name): #闭包函数            
-            print(&#39;你好:&#39;,name)            
-            if choice == &#39;Man&#39;: #如果装饰器函数接收到的参数值为Man                       
-                    print(&#39;去工作&#39;)            
-             if choice == &#39;Woman&#39;:                
-                    print(&#39;去逛街&#39;)            
-             return func(name) #闭包函数返回被装饰函数调用        
-        return nei #装饰器函数返回内部闭包函数    
-    return wai #最外层函数返回装饰器函数
-choice = input(&#39;请输入你的性别:&#39;)
-name = input(&#39;请输入你的名字:&#39;)
-@arg_func(choice)
-def func(name):    
-    print(&quot;你的名字是:&quot;,name)
-func(name)</code></pre>
-<hr>
-<blockquote>
-<p>执行的效果</p>
-</blockquote>
-<pre><code class="python">请输入你的性别:Man请输入你的名字:张三你好: 张三去工作你的名字是: 张三
-请输入你的性别:Woman请输入你的名字:李四你好: 李四去逛街你的名字是: 李四</code></pre>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>实现装饰器</p>
-<ul>
-<li>定义闭包函数</li>
-<li>闭包函数返回装饰器函数接收参数<strong>调用</strong></li>
-<li><strong>装饰器</strong>函数<strong>参数</strong>部分接收<strong>被装饰函数</strong>对象</li>
-<li><strong>闭包函数参数</strong>部分接收<strong>被装饰函数参数</strong>部分</li>
-<li>如果需要<strong>装饰器函数带参数</strong>，在最外层在包裹一层函数，形参部分接收装饰器函数参数，返回装饰器函数即可</li>
-</ul>
-</blockquote>
+<p>应用创建成功后，会立即跳转审核页面，需要填写一些资质，用来进行审核，其实这些审核字段都不用搭理，                  应用压根就不需要通过审核 </p>
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\2.png" style="zoom: 50%;">
+
+<p> 只需要拿到appkey和appsecret即可，然后立即点击高级信息，填写回调网址 </p>
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\3.png" style="zoom: 33%;">
+
+<p>那么新浪微博的登录逻辑很简单： 拼接url =&gt; 回调获取code =&gt; 利用code换取uid和access_token =&gt; 使用access_token获取用户信息</p>
+<p>  首先第一步，拼接url，这里我们使用Tornado写控制器</p>
+<pre><code class="python">#新浪微博登录地址组合返回（第一步）
+class SinaFirstHandler(BaseHandler):
+
+    def get(self,*args,**kwargs):
+
+        #微博接口地址
+        weibo_auth_url = &quot;https://api.weibo.com/oauth2/authorize&quot;
+        #回调网址
+        redirect_url = &quot;http://127.0.0.1:8000/md_admin/weibo&quot;
+        #应用id
+        client_id = &quot;2636039333&quot;
+        #组合url
+        auth_url = weibo_auth_url + &quot;?client_id={client_id}&amp;redirect_uri={re_url}&quot;.format(client_id=client_id,
+                                                                                        re_url=redirect_url)
+        self.write(auth_url)</code></pre>
+<p> 第二步，回调获取code，并且换取access_token和uid </p>
+<pre><code class="python">#新浪微博回调地址（第二步）
+class SinaBackHandler(BaseHandler):
+
+    def get(self,*args,**kwargs):
+        #获取回调的code
+        code = self.get_argument(&#39;code&#39;)
+        #微博认证地址
+        access_token_url = &quot;https://api.weibo.com/oauth2/access_token&quot;
+        #参数 向新浪接口发送请求
+        re_dict = requests.post(access_token_url,data={
+            &quot;client_id&quot;: &#39;2636039333&#39;,
+            &quot;client_secret&quot;: &quot;4e2fbdb39432c31dc5c2f90be3afa5ce&quot;,
+            &quot;grant_type&quot;: &quot;authorization_code&quot;,
+            &quot;code&quot;: code,
+            &quot;redirect_uri&quot;: &quot;http://127.0.0.1:8000/md_admin/weibo&quot;,
+        })
+
+        re_dict = re_dict.text
+        re_dict = eval(re_dict)
+        print(re_dict.get(&#39;uid&#39;))
+
+        self.write(re_dict)</code></pre>
+<p>接下来的情况就有点操蛋了，因为新浪规定应用如果不通过审核，那么新浪有些接口无权限请求的，可以说你手里只有access_token和uid，却换不到别的东西，怎么办呢，没有人会闲的没事为了测试接口就去弄个营业执照，但是有一个曲线救国的方法，就是在测试信息页面来添加测试账号，添加好测试账号之后，就可以请求相应的接口 </p>
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\4.png" style="zoom:50%;">
+
+<p>最后，利用手里的access_token和uid来获取当前用户的用户名 </p>
+<pre><code class="python">result = requests.get(&#39;https://api.weibo.com/2/users/show.json&#39;,params={&#39;access_token&#39;:res[&#39;access_token&#39;],&#39;uid&#39;:res[&#39;uid&#39;]})
+
+result = json.loads(result.text)
+print(result[&#39;name&#39;])</code></pre>
+<img src="/.com//Windows\System32\blog\source\_posts\微博第三方登录\51.png" style="zoom: 67%;">
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -839,12 +791,12 @@ func(name)</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>装饰器函数</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">文章标题:</span>day08-微博第三方登录</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">569</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-27, 15:48:51</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-09, 10:05:43</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/27/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0/" title="装饰器函数">http://yoursite.com/2019/12/27/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-29, 08:45:21</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-29, 09:09:06</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/29/%E5%BE%AE%E5%8D%9A%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/" title="day08-微博第三方登录">http://yoursite.com/2020/04/29/%E5%BE%AE%E5%8D%9A%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
