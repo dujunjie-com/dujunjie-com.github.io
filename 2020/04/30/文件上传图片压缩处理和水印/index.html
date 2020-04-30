@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>day06-百度智能云文字识别验证码 | Besos的博客</title>
+  <title>day09-文件上传图片压缩处理和水印 | Besos的博客</title>
   <meta name="baidu-site-verification" content="LMxJyO5q7Y" />
-  <meta name="keywords" content=" 验证码识别 ">
-  <meta name="description" content="day06-百度智能云文字识别验证码 | Besos的博客">
+  <meta name="keywords" content=" file ">
+  <meta name="description" content="day09-文件上传图片压缩处理和水印 | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="#文件上传 绑定点击上传事件要用 @chage&#x3D;&quot;&quot;  &lt;input type&#x3D;&quot;file&quot; @change&#x3D;&quot;upload&quot;&gt;      upload:function(e){         &#x2F;&#x2F;获取文件         let file &#x3D; e.target.files[0]         &#x2F;&#x2F;声明表单参数">
 <meta property="og:type" content="article">
@@ -656,9 +656,9 @@ transform: translate(-68%, -50%);
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-百度智能云文字识别验证码" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-文件上传图片压缩处理和水印" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">day06-百度智能云文字识别验证码</h1>
+        <h1 class="article-title">day09-文件上传图片压缩处理和水印</h1>
     
     <div class="article-meta">
         
@@ -673,19 +673,19 @@ transform: translate(-68%, -50%);
         
         <span class="tag">
             
-            <a class="color1">验证码识别</a>
+            <a class="color5">file</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-27 15:22:24'>2020-04-26 15:01</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-30 11:31:11'>2020-04-30 11:29</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:280</span>
+        <span>字数:703</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -731,54 +731,87 @@ transform: translate(-68%, -50%);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code class="python">import requests
-import json
-import base64
-import urllib
-from selenium import webdriver
-import time
+        <p>#文件上传</p>
+<pre><code class="python">绑定点击上传事件要用 @chage=&quot;&quot;  &lt;input type=&quot;file&quot; @change=&quot;upload&quot;&gt;
 
-#selenium 截图
-driver = webdriver.Chrome()
-driver.get(&#39;https://www.dianxiaomi.com/index.htm&#39;)
-time.sleep(1)
+    upload:function(e){
+        //获取文件
+        let file = e.target.files[0]
+        //声明表单参数
+        let param = new FormData();
 
-#删除元素
-js=&quot;varelem=document.getElementsByClassName(&#39;dnf&#39;);elem[0].parentNode.removeChild(elem[0]);&quot;driver.execute_script(js)
+        param.append(&#39;file&#39;,file,file.name)
+        //声明请求头&#39;Content-Type&#39;:&#39;multipart/form-data&#39;这是传文件的文件头在这必须传
+        let config = {headers:{&#39;Content-Type&#39;:&#39;multipart/form-data&#39;}}
 
- js = &quot;var elem = document.getElementsByClassName(&#39;qqshow&#39;);elem[0].parentNode.removeChild(elem[0]);&quot;driver.execute_script(js)
+        //请求后台接口
+        this.axios.post(&#39;http://127.0.0.1:8000/upload/&#39;,param,config).then(result=&gt;{
 
-js = &quot;var elem = document.getElementsByClassName(&#39;QR&#39;);elem[0].parentNode.removeChild(elem[0]);&quot;driver.execute_script(js)
+                console.log(result);
 
-nodes = driver.find_element_by_id(&#39;loginImgVcode&#39;)
-nodes.screenshot(&#39;test.png&#39;)
+                this.src = &quot;http://localhost:8000/static/upload/&quot;+result.data.filename
 
-#用户名 exampleInputName exampleInputPassword
-driver.find_element_by_id(&#39;exampleInputName&#39;).send_keys(&#39;18231327142&#39;)
-driver.find_element_by_id(&#39;exampleInputPassword&#39;).send_keys(&#39;密码&#39;)
-#请求百度api接口
-res = requests.get(&quot;https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&amp;client_id=你的key&amp;client_secret=你的秘钥&quot;)
+        })
 
-res = json.loads(str(res.text))
-token = res[&#39;access_token&#39;]
-temp_url = &#39;https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=&#39; + token
-temp_headers = {&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;}
-temp_file = open(&#39;./test.png&#39;, &#39;rb&#39;)
-temp_image = temp_file.read()
-temp_file.close()
-temp_data = {&#39;image&#39;: base64.b64encode(temp_image)}
-temp_data = urllib.parse.urlencode(temp_data)
-temp_res = requests.post(url=temp_url, data=temp_data, headers=temp_headers)
+    }     
+  }</code></pre>
+<p>Django后端</p>
+<pre><code class="python">def post(self,request):
+        #接收参数
+        myfile = request.FILES.get(&#39;file&#39;)
+        name_id = str(uuid.uuid1())+&#39;.jpg&#39;
+        #myfile.name.replace(myfile.name,&#39;&#39;) 作用是清空原来的文件名 用uuid生成的替换
+        f = 
+      open(os.path.join(UPLOAD_ROOT,&#39;&#39;,myfile.name.replace(myfile.name,&#39;&#39;)+name_id),&#39;wb&#39;)
+        for chunk in myfile.chunks():
+            f.write(chunk)
+        f.close()
+        #给图片加水印
+        读取图片
+        im = Image.open(&quot;./static./upload/&quot; + name_id)
+        print(im.format, im.size, im.mode)
+        width_a = im.size
+        # 转换成格式height width
+        width_a_str = str(width_a)
+        # 切片去掉括号 切完后一个列表包裹的格式为 str格式这个不用管
+        b = width_a_str[1:-1]
+        # 因为  切完输出的str格式的数字   1738, 749  看到逗号后面还有个空格 “， ”
+        # 所以我们用split来分割出数字
+        b1 = b.split(&#39;, &#39;)
+        # 然后下标取值 取值进行强转 后为int类型 就可以计算了
+        width = int(b1[0])
+        height = int(b1[1])
+        print(type(width))
+        print(type(height))
+        # 这里我，我们用ImageFont truetype（微软字体）  然后找到我们Windows下的字体安装包 写路径 后面的数字是字体大小
+        #   .ttc 是系统字体文件的后缀  记得加上
+        font = ImageFont.truetype(&#39;C:/Windows/Fonts/simsun.ttc&#39;, 30)
+        # 生成画笔
+        draw = ImageDraw.Draw(im)
+        imgs1 = draw.text((width - 140, height - 80), &#39;有限公司&#39;, font=font, fill=(76, 234, 124, 180))
 
-res = json.loads(str(temp_res.text))
-print(res)
-code = res[&#39;words_result&#39;][0][&#39;words&#39;]
 
-driver.find_element_by_id(&#39;loginVerifyCode&#39;).send_keys(code.strip().replace(&#39; &#39;,&#39;&#39;))
-#登录按钮
-driver.find_element_by_id(&#39;loginBtn&#39;).click()
-time.sleep(10)
-driver.close()</code></pre>
+        #生成图片水印
+        # 查看生成水印后的图片 我们不用查看 所以注掉
+        # im.show()
+        # 保存name_id
+        im.save(&quot;./static/upload/&quot; + name_id)
+
+        # 读图
+        img = cv2.imread(&quot;./static./upload/&quot; + name_id)
+        print(&quot;读取成功&quot;)
+        # JPG 压缩等级  0-100 等级越高像素越次
+        cv2.imwrite(&quot;./static./upload/&quot; + name_id, img, [cv2.IMWRITE_JPEG_QUALITY, 50])
+        print(&quot;压缩成功&quot;)
+
+
+
+        #最后把图片的名称传到前端供前端展示
+        return Response({&#39;filename&#39;:name_id}) </code></pre>
+<p>1.注意路径 路径 注意 UUid生成后缀不带.PNG .JPG 等文件后缀</p>
+<p>2.水印生成的时候支持英文 需要 font = ImageFont.truetype(‘C:/Windows/Fonts/simsun.ttc’, 30)</p>
+<p> 才能生成中文水印 这里我们用ImageFont truetype（微软字体） 然后找到我们Windows下的字体安装 包 写路径 后面的数字是字体大小 .ttc 是系统字体文件的后缀 记得加上</p>
+<p>3.图片取到的图片参数需要处理 因为不是int类型 不能进行计算</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dujunjie666@gmail.com </span>
@@ -792,12 +825,12 @@ driver.close()</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>day06-百度智能云文字识别验证码</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">280</span></p>
+    <p><span class="copy-title">文章标题:</span>day09-文件上传图片压缩处理和水印</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">703</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Besos的博客">Besos的博客</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-26, 15:01:10</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-27, 15:22:24</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/26/%E7%99%BE%E5%BA%A6%E6%99%BA%E8%83%BD%E4%BA%91%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB%E9%AA%8C%E8%AF%81%E7%A0%81/" title="day06-百度智能云文字识别验证码">dujunjie-com.github.ios/2020/04/26/%E7%99%BE%E5%BA%A6%E6%99%BA%E8%83%BD%E4%BA%91%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB%E9%AA%8C%E8%AF%81%E7%A0%81/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-30, 11:29:22</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-30, 11:31:11</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86%E5%92%8C%E6%B0%B4%E5%8D%B0/" title="day09-文件上传图片压缩处理和水印">dujunjie-com.github.ios/2020/04/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86%E5%92%8C%E6%B0%B4%E5%8D%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
