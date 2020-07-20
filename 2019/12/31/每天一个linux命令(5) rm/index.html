@@ -7,15 +7,15 @@
   <meta name="keywords" content=" 命令 ">
   <meta name="description" content="每天一个linux命令(5) rm | Besos的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="1. 封装1．在类中对数据的赋值、内部调用对外部用户是透明的 \2. 这使类变成了一个胶囊或容器，里面包含着类的数据和方法 \3. 作用： 　　1）防止数据被随意修改 　　2）使外部程序不需要关注对象内部的构造，只需要通过对外提供的接口进行直接访问 2**．Inheritance 继承（代码重用）**\1. 一个类可以派生出子类，在这个父类里定义的属性、方法自动被子类继承 \2. 比如CS中的警察">
-<meta property="og:type" content="article">
-<meta property="og:title" content="面向对象">
-<meta property="og:url" content="dujunjie-com.github.ios/2020/05/09/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/index.html">
+<meta name="description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于&amp;留言板">
+<meta property="og:url" content="dujunjie-com.github.ios/about/index.html">
 <meta property="og:site_name" content="Besos的博客">
-<meta property="og:description" content="1. 封装1．在类中对数据的赋值、内部调用对外部用户是透明的 \2. 这使类变成了一个胶囊或容器，里面包含着类的数据和方法 \3. 作用： 　　1）防止数据被随意修改 　　2）使外部程序不需要关注对象内部的构造，只需要通过对外提供的接口进行直接访问 2**．Inheritance 继承（代码重用）**\1. 一个类可以派生出子类，在这个父类里定义的属性、方法自动被子类继承 \2. 比如CS中的警察">
+<meta property="og:description" content="个人简介堵俊杰， 毕业于郑大，目前从事 Python 及相关工作。 喜欢研究新兴技术和未来发展方向。 最近在彭小六的六扇门内，研习阅读方法、知识管理、时间管理等方法。 联系方式 QQ : 784577996 邮箱 :  dujunjie666@gmail.com">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-09T09:09:28.000Z">
-<meta property="article:modified_time" content="2020-05-09T09:10:55.254Z">
+<meta property="article:published_time" content="2020-01-14T06:27:45.000Z">
+<meta property="article:modified_time" content="2020-01-14T06:54:13.445Z">
 <meta property="article:author" content="Besos的博客">
 <meta name="twitter:card" content="summary">
 
@@ -223,7 +223,7 @@ transform: translate(-68%, -50%);
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(51)</small></div></li>
+    <li><div class="all active">全部文章<small>(52)</small></div></li>
     
         
             
@@ -257,6 +257,14 @@ transform: translate(-68%, -50%);
             
         
     
+        
+            
+            <li><div data-rel="游戏">游戏<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -267,8 +275,8 @@ transform: translate(-68%, -50%);
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="51">
-<input type="hidden" id="yelog_site_word_count" value="32.8k">
+<input type="hidden" id="yelog_site_posts_number" value="52">
+<input type="hidden" id="yelog_site_word_count" value="36.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -347,6 +355,10 @@ transform: translate(-68%, -50%);
     
     <li class="article-tag-list-item">
         <a class="color5">file</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">python游戏</a>
     </li>
     
     <div class="clearfix"></div>
@@ -763,6 +775,14 @@ transform: translate(-68%, -50%);
             <span class="post-date" title="2020-05-09 17:09:28">2020/05/09</span>
         </a>
         
+        <a  class="游戏 "
+           href="/2020/07/20/game/"
+           data-tag="python游戏"
+           data-author="" >
+            <span class="post-title" title="&#39;python外星人小游戏&#39;">&#39;python外星人小游戏&#39;</span>
+            <span class="post-date" title="2020-07-20 10:32:01">2020/07/20</span>
+        </a>
+        
     </nav>
 </div>
     </div>
@@ -975,7 +995,7 @@ $ myrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &quot;$@&quot; $D &amp;&
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['@堵俊杰','@堵俊杰','#python','#文件','#爬虫','#命令','#PostgreSQL','#git','#hugo','#vue','#django','#docker','#验证码识别','#file',],
+            'data': ['@堵俊杰','@堵俊杰','#python','#文件','#爬虫','#命令','#PostgreSQL','#git','#hugo','#vue','#django','#docker','#验证码识别','#file','#python游戏',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
